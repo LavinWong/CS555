@@ -1,6 +1,6 @@
 # Group Name: Cpp Master
+# This is Qi's branch 
 
-# Hello
 ## This is a C++ group project for CS555
 
 ## Group member:
