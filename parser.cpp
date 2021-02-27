@@ -2,6 +2,8 @@
 #include <fstream>
 #include <array>
 #include <string>
+// qis parser
+
 
 using namespace std;
 void getOutPutString(string line);
