@@ -1,7 +1,5 @@
 # Group Name: Cpp Master
-# This is Qi's branch 
-
-## This is a C++ group project for CS555
+## This is Qi's branch 
 
 ## Group member:
 Qi	Zhao,
