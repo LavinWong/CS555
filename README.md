@@ -1,5 +1,5 @@
 # Group Name: Cpp Master
-## This is Qi's branch 
+
 
 ## Group member:
 Qi	Zhao,
@@ -23,3 +23,5 @@ click Build & Run,
 then done. 
 
 p.s. we are building with clang++ for macOS.
+
+    notes:This is Qi's branch 
