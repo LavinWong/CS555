@@ -2,18 +2,27 @@
 #include <fstream>
 #include <array>
 #include <string>
-// qis parser
 
+#include "bprinter/table_printer.h"
+#define _USE_MATH_DEFINES
+#include <math.h>
+
+#if defined(USE_BOOST_KARMA)
+#include <boost/spirit/include/karma.hpp>
+namespace karma = boost::spirit::karma;
+#endif
+// qis parser
 
 using namespace std;
 void getOutPutString(string line);
 string getValided(char level, string tag);
+void test_bprinter();
 
 int main(){
     ifstream gedFile;
     string line;
     int counter = 0;
-    gedFile.open("sample2.ged");
+    gedFile.open("src/GEDCOM.ged");
     if (gedFile.is_open())
     {
         while(getline(gedFile, line)){
@@ -26,6 +35,7 @@ int main(){
     }
     else cout << "Unable to open file"<<endl; 
 
+    test_bprinter();
     // gedFile.close();
     return 0;
 }
@@ -122,4 +132,27 @@ string getValided(char level, string tag){
     // this part need to verify the key is validated. 
     
     return answer;
+}
+
+void test_bprinter(){
+  bprinter::TablePrinter tp(&std::cout);
+  tp.AddColumn("Name", 10);
+  tp.AddColumn("Age", 5);
+  tp.AddColumn("Position", 30);
+  tp.AddColumn("Allowance", 9);
+
+  tp.PrintHeader();
+  tp << "Dat Chu" << 25 << "Research Assistant" << -0.00000000001337;
+  tp << "John Doe" << 26 << "Too much float" << 125456789.123456789;
+  tp << "John Doe" << 26 << "Typical Int" << 1254;
+  tp << "John Doe" << 26 << "Typical float" << 1254.36;
+  tp << "John Doe" << 26 << "Too much negative" << -125456789.123456789;
+  tp << "John Doe" << 26 << "Exact size int" << 125456789;
+  tp << "John Doe" << 26 << "Exact size int" << -12545678;
+  tp << "John Doe" << 26 << "Exact size float" << -1254567.8;
+  tp << "John Doe" << 26 << "Negative Int" << -1254;
+  tp << "Jane Doe" << bprinter::endl();
+  tp << "Tom Doe" << 7 << "Student" << -M_PI;
+  tp.PrintFooter();
+
 }
