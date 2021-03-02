@@ -15,9 +15,7 @@ Zichong	Wang
 ### IDE & plugin requirements:
 IDE: VS Code,
 
-plugin needed: easy C++ project,
-
-C++ Intellisense
+plugin needed: easy C++ project, C++ Intellisense
 
 ## step 1:
 
