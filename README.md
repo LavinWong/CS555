@@ -13,8 +13,10 @@ Zichong	Wang
 ## step 0:
 
 ### IDE & plugin requirements:
-IDE: VS Code, 
+IDE: VS Code,
+
 plugin needed: easy C++ project,
+
 C++ Intellisense
 
 ## step 1:
