@@ -6,6 +6,8 @@
 #include "bprinter/table_printer.h"
 #define _USE_MATH_DEFINES
 #include <math.h>
+#include "family.h"
+#include "individual.h"
 
 #if defined(USE_BOOST_KARMA)
 #include <boost/spirit/include/karma.hpp>
@@ -14,7 +16,7 @@ namespace karma = boost::spirit::karma;
 // qis parser
 
 using namespace std;
-void getOutPutString(string line);
+string* getOutPutString(string line);
 string getValided(char level, string tag);
 void test_bprinter();
 
@@ -22,14 +24,42 @@ int main(){
     ifstream gedFile;
     string line;
     int counter = 0;
-    gedFile.open("src/GEDCOM.ged");
+    string* lineResult;
+    vector<Individual> indiList;
+    vector<Family> famList;
+
+    gedFile.open("src/GEDCOM.ged"); // open ged file
+
     if (gedFile.is_open())
     {
         while(getline(gedFile, line)){
-            cout<<"-->"<<line<<endl;
-            string nxtLine;
-            getOutPutString(line);
-            
+            lineResult = getOutPutString(line); // assign the return value to lineReuslt, contains each line's validTag, level, tag, and args
+            if (*(lineResult+1) == "|Y|"){
+                if (*(lineResult+2) == "0"){
+                    if (*(lineResult+3) == "INDI" || *(lineResult+3) == "FAM"){
+                        // create new indi or new fam
+                        // edit 
+
+                    }else{
+                        // ignore other tag like NOTE, HEAD at level 0
+
+                    }
+                }else{
+                    if (*(lineResult+3) == "BIRT" || *(lineResult+3) == "DEAT"
+                        || *(lineResult+3) == "MARR"|| *(lineResult+3) == "DIV"){
+                        // create new indi or new fam
+
+                    }else{
+                        // ignore other tag like NOTE, HEAD at level 0
+
+                    }
+                    // full fill the tag (p.s. sexcept for 4 date fore tag
+
+                }
+            }else{
+                // ignore invalid line
+
+            }
         }
         gedFile.close();
     }
@@ -40,23 +70,31 @@ int main(){
     return 0;
 }
 
-void getOutPutString(string line_2){
+
+string* getOutPutString(string line_2){
     string line(line_2.begin(), line_2.end()-1);
     string outPut;
     char level;
     level = line[0];
+    string outputString[4];
+    string outputStringD[3];    // output array for 4 date Tag, BIRT, DEAT, DIV, MARR
+
     // get the string at the start of the tag
     if (level == '1' || level == '2'){
         size_t firstBlank = line.find_first_of(" ");
         size_t secBlank = line.find_first_of(" ", firstBlank+1);
         if (firstBlank == string::npos || secBlank == string::npos){
             string first_tag (line.begin()+firstBlank+1, line.end());
+            
             if (first_tag == "BIRT"|| first_tag =="DEAT"||first_tag =="MARR"||first_tag =="DIV"){
                 outPut.append(1,level);
                 outPut += "|"+first_tag+"|Y|"; 
+                return outputStringD;
             }else{
+                outputString[0] = "|N|";
                 outPut = "|N|"+line;
             }
+
         }else{
             string tag (line.begin()+firstBlank+1, line.begin()+secBlank);
             string argLine (line.begin()+secBlank+1, line.end());
@@ -86,7 +124,6 @@ void getOutPutString(string line_2){
     }else{
         outPut = "|N|"+line;
     }
-    cout<<"<--"<<outPut<<endl;
 }
 
 string getValided(char level, string tag){
@@ -135,24 +172,18 @@ string getValided(char level, string tag){
 }
 
 void test_bprinter(){
-  bprinter::TablePrinter tp(&std::cout);
-  tp.AddColumn("Name", 10);
-  tp.AddColumn("Age", 5);
-  tp.AddColumn("Position", 30);
-  tp.AddColumn("Allowance", 9);
+  bprinter::TablePrinter indiTable(&std::cout);
+  indiTable.AddColumn("ID", 5);
+  indiTable.AddColumn("Name", 10);
+  indiTable.AddColumn("Gender", 3);
+  indiTable.AddColumn("Birthday", 12);
+  indiTable.AddColumn("Alive", 3);
+  indiTable.AddColumn("Death", 12);
+  indiTable.AddColumn("Child", 12);
+  indiTable.AddColumn("Spouse", 12);
 
-  tp.PrintHeader();
-  tp << "Dat Chu" << 25 << "Research Assistant" << -0.00000000001337;
-  tp << "John Doe" << 26 << "Too much float" << 125456789.123456789;
-  tp << "John Doe" << 26 << "Typical Int" << 1254;
-  tp << "John Doe" << 26 << "Typical float" << 1254.36;
-  tp << "John Doe" << 26 << "Too much negative" << -125456789.123456789;
-  tp << "John Doe" << 26 << "Exact size int" << 125456789;
-  tp << "John Doe" << 26 << "Exact size int" << -12545678;
-  tp << "John Doe" << 26 << "Exact size float" << -1254567.8;
-  tp << "John Doe" << 26 << "Negative Int" << -1254;
-  tp << "Jane Doe" << bprinter::endl();
-  tp << "Tom Doe" << 7 << "Student" << -M_PI;
+  indiTable.PrintHeader();
+  indiTable << "Dat Chu" << 25 << "Research Assistant" << -0.00000000001337;
   tp.PrintFooter();
 
 }
