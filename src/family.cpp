@@ -1,4 +1,8 @@
 #include "family.h"
+#include <iostream>  
+#include <time.h>  
+#include <stdlib.h>  
+#include <string.h
 
 Family::Family(std::string id1){
     id = id1;
