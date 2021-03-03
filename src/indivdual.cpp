@@ -48,6 +48,19 @@ void Individual::getChildId(std::vector<Family> family_list){
 
 time_t transfer_sting_to_time(std::string str)
 {
+    if(str == "NA")
+    {
+        tm tm1;
+        tm1.tm_year = 0;                
+        tm1.tm_mon = 0;                    
+        tm1.tm_mday = 0;
+        tm1.tm_hour = 0;                        
+        tm1.tm_min = 0;                       
+        tm1.tm_sec = 0;                       
+        tm1.tm_isdst = 0;                          
+        time_t ans = mktime(&tm1); 
+        return ans;
+    }    
     char *date = (char*)str.data();
     tm tm1;                                    
     int year, month, day, hour=0, minute=0, second=0;
