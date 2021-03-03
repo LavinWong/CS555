@@ -22,5 +22,4 @@ plugin needed: easy C++ project, C++ Intellisense
 click Build & Run, 
 then done. 
 
-    p.s. we are building with clang++ for macOS.
-    notes:This is Qi's branch 
+    p.s. we are building with clang++ for macOS. 
