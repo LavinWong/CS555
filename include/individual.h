@@ -1,3 +1,6 @@
+#ifndef INDIVIDUAL_H
+#define INDIVIDUAL_H
+
 #include <iomanip>
 #include <vector>
 #include <string>
@@ -5,7 +8,7 @@
 #include <cmath>
 #include <ctime>
 
-#include <family.h>
+#include "family.h"
 
 
 class Individual{
@@ -25,22 +28,38 @@ private:
 
 std::string id;
 std::string name;
-char gender;
+std::string gender;
 std::time_t bday; // bday for birthday date
 bool alive;
 std::time_t dday; // dday for death date
-std::vector<std::string> child_id;
-std::vector<std::string> spouse_id;
+std::vector<std::string> famcList;
+std::vector<std::string> famsList;
+
+std::time_t transfer_sting_to_time(std::string str);
 
 public:
 Individual(std::string id1);
 ~Individual();
 
+void setID(std::string id);
 void setName(std::string name);
-void setGender(char gender);
-void setBday(std::time_t bday);
-void setDday(std::time_t dday);
+void setGender(std::string gender);
+void setBday(std::string bday);
+void setDday(std::string dday);
 void setAlive();
-void getChildId(std::vector<Family> family_list);
+void setFamcList(std::string famc_id);
+void setFamsList(std::string fams_id);
+
+
+std::string getID();
+std::string getName();
+std::string getGender();
+std::string getBday();
+std::string getAlive();
+std::string getDday();
+std::string getFamcList();
+std::string getFamsList();
 
 };
+
+#endif

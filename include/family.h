@@ -1,3 +1,6 @@
+#ifndef FAMILY_H
+#define FAMILY_H
+
 #include <iomanip>
 #include <vector>
 #include <string>
@@ -30,16 +33,30 @@ std::string wife_id;
 std::string wife_name;
 
 std::vector<std::string> children_id;
+std::time_t transfer_sting_to_time(std::string str);
 
 public:
 Family(std::string id1);
 ~Family();
 
-void setMarrDate(std::time_t marr_d);
-void setDivDate(std::time_t div_d);
-void setHusId(std::string hus_id);
-void setWifeId(std::string wife_id);
+void setID(std::string id);
+void setMarrDate(std::string marr_d);
+void setDivDate(std::string div_d);
+void setHusID(std::string hus_id);
+void setWifeID(std::string wife_id);
 void setHusName(std::string hus_id);
 void setWifeName(std::string wife_id);
-void getChildrenId(std::vector<std::string> children_id);
+void setChildID(std::string child_id);
+
+std::string getID();
+std::string getMarrDate();
+std::string getDivDate();
+std::string getHusID();
+std::string getHusName();
+std::string getWifeID();
+std::string getWifeName();
+std::string getChildrenList();
+
 };
+
+#endif
