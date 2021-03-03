@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include <ctime>
+#include"bprinter/table_printer.h"
 using namespace std;
 
 typedef struct indi {
