@@ -74,13 +74,21 @@ std::string Individual::getDday(){
 }
 
 std::string Individual::getFamcList(){
-    std::string str(famcList.begin(), famcList.end());
-    return str;
+    std::string output = "{";
+    for (auto famc: famcList){
+        output += famc+", ";
+    }
+    output += "}";
+    return output;
 }
 
 std::string Individual::getFamsList(){
-    std::string str(famsList.begin(), famsList.end());
-    return str;
+    std::string output = "{";
+    for (auto fams: famsList){
+        output += fams+", ";
+    }
+    output += "}";
+    return output;
 }
 
 std::time_t transfer_sting_to_time(std::string str)
