@@ -17,6 +17,7 @@ class Cppunit_tests: public Cppunit {
 
         // for example: adding unit test for us01()
         us01();
+        us06();
 
         // adding another unit test case
         another_unit_test();
@@ -24,15 +25,17 @@ class Cppunit_tests: public Cppunit {
 
     void us01(){
         // declare us01 unit test function.
+        Repository repo;
+        std::vector<std::string> result = {"@I7@", "@I14@", "@F1@", "@F2@"};
+        CHECKT(repo.us01() == result);
 
-        // Integral type match check.
-        CHECK(2 + 2, 4);
+    }
 
-        // Boolean type value check.
-        CHECKT(2 + 2 == 4);
-
-        // String match check.
-        CHECKS("a" "b", "ab");
+    void us06(){
+        // add test case for us06
+        Repository repo;
+        std::vector<std::string> result = {"@F5@"};
+        CHECKT(repo.us06() == result);
 
     }
 
@@ -42,8 +45,8 @@ class Cppunit_tests: public Cppunit {
     }
 
     void print_table_test() {
-            Repository repo;
-            repo.print_table();
+        Repository repo;
+        repo.print_table();
     }
 };
 

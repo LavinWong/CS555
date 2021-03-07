@@ -4,6 +4,8 @@
 
 #include "Repository.h"
 #include "parser.h"
+#include <algorithm>
+
 
 Repository::Repository() {
     std::string filepath = "src/GEDCOM.ged";
@@ -62,8 +64,63 @@ void Repository::setHusWifeName() {
 
 // add us01 to us06 here 
 
-void Repository::us01() {
+std::vector<std::string> Repository::us01() {
     // todo
+    std::time_t now;
+    time(&now);
+    char output[20];
+    struct tm* timeinfo;
+    timeinfo = localtime(&now);
+    strftime(output,20,"%F",timeinfo);
+    std::string out2 = output;
+    std::vector<std::string> result = {};
+
+    for (auto indi: indiList){
+        if (indi.getBday() != "NA"){
+            if (out2 < indi.getBday()){
+                if(std::find(result.begin(), result.end(), indi.getID())==result.end()){
+                    result.push_back(indi.getID());
+                }else {
+                    // do nothing
+                }
+
+            }
+        }
+
+        if (indi.getDday() != "NA"){
+            if (out2 < indi.getDday()){
+                // todo
+                if (std::find(result.begin(), result.end(), indi.getID())==result.end()){
+                    result.push_back(indi.getID());
+                }else{
+                    // do nothing
+                }
+            }
+        }
+    }
+
+    for(auto fam: famList){
+        if (fam.getMarr() != "NA"){
+            if (out2 < fam.getMarr()){
+                if(std::find(result.begin(), result.end(), fam.getID())==result.end()){
+                    result.push_back(fam.getID());
+                }else {
+                    // do nothing
+                }
+            }
+        }
+
+        if (fam.getDiv() != "NA"){
+            if (out2 < fam.getDiv()){
+                if(std::find(result.begin(), result.end(), fam.getID())==result.end()){
+                    result.push_back(fam.getID());
+                }else {
+                    // do nothing
+                }
+            }
+        }
+    }
+    return result;
 }
 
 void Repository::us02() {
@@ -82,6 +139,29 @@ void Repository::us05() {
     // todo
 }
 
-void Repository::us06() {
+std::vector<std::string> Repository::us06() {
     // todo
+    std::vector<std::string> result = {};
+    for (auto fam: famList){
+        if (fam.getDiv()!="NA"){
+            std::string husDday;
+            std::string wifeDday;
+            for (auto indi: indiList){
+                if (indi.getID() == fam.getHusID()){
+                    husDday = indi.getDday();
+                }else if (indi.getID() == fam.getWifeID()){
+                    wifeDday = indi.getDday();
+                }
+            }
+            if (husDday < fam.getDiv() || wifeDday < fam.getDiv()) {
+                if(std::find(result.begin(), result.end(), fam.getID())==result.end()){
+                    result.push_back(fam.getID());
+                }else {
+                    // do nothing
+                }
+            }
+
+        }
+    }
+    return result;
 }

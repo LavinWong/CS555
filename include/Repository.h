@@ -13,7 +13,6 @@
 #include <vector>
 
 
-
 std::vector<std::string> getOutPutString(std::string line_2);
 std::string getValided(char level, std::string tag);
 class Repository {
@@ -27,12 +26,12 @@ public:
     void setHusWifeName();
 
     void print_table();
-    void us01();
+    std::vector<std::string> us01();
     void us02();
     void us03();
     void us04();
     void us05();
-    void us06();
+    std::vector<std::string> us06();
     
 
 };
