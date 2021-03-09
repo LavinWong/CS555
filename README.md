@@ -1,4 +1,4 @@
-# Group Name: Cpp Master [![C/C++ CI](https://github.com/LavinWong/CS555/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/LavinWong/CS555/actions/workflows/c-cpp.yml)
+# Group Name: Cpp Master [![C/C++ CI](https://github.com/LavinWong/CS555/actions/workflows/c-cpp.yml/badge.svg?branch=main)](https://github.com/LavinWong/CS555/actions/workflows/c-cpp.yml)
 
 
 ## Group member:
