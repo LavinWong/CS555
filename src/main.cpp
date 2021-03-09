@@ -16,14 +16,14 @@ class Cppunit_tests: public Cppunit {
         // add your unit test case function here
 
         // for example: adding unit test for us01()
-        us01();
-        us06();
+        us01_test();
+        us06_test();
 
         // adding another unit test case
         another_unit_test();
     }
 
-    void us01(){
+    void us01_test(){
         // declare us01 unit test function.
         Repository repo;
         std::vector<std::string> result = {"@I7@", "@I14@", "@F1@", "@F2@"};
@@ -31,7 +31,7 @@ class Cppunit_tests: public Cppunit {
 
     }
 
-    void us06(){
+    void us06_test(){
         // add test case for us06
         Repository repo;
         std::vector<std::string> result = {"@F5@"};

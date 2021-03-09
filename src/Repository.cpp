@@ -80,6 +80,7 @@ std::vector<std::string> Repository::us01() {
             if (out2 < indi.getBday()){
                 if(std::find(result.begin(), result.end(), indi.getID())==result.end()){
                     result.push_back(indi.getID());
+                    // print error message 
                 }else {
                     // do nothing
                 }
