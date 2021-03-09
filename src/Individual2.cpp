@@ -27,11 +27,11 @@ void Individual2::setName(std::string name2){
 }
 
 void Individual2::setAge() {
-    if (bday == -1){
+    if (bday == -2209075200){
         age = -1;
 
     }else{
-        if (dday == -1){
+        if (dday == -2209075200){
             time_t now;
             time(&now);
             double seconds;
@@ -64,8 +64,8 @@ void Individual2::setDday(std::string dday2){
     dday = str_to_t_time(dday2);
 }
 void Individual2::setAlive(){
-    if (dday == -1){
-        if (bday == -1){
+    if (dday == -2209075200){
+        if (bday == -2209075200){
             alive = false;
         }else{
             alive = true;
@@ -88,7 +88,7 @@ std::string Individual2::getGender(){
     return gender;
 }
 std::string Individual2::getBday(){
-    if (bday == -1){
+    if (bday == -2209075200){
         return "NA";
     }else{
         char output[20];
