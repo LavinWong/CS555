@@ -29,7 +29,7 @@ void Family2::setMarr(std::string marr_d2) {
 }
 
 std::string Family2::getMarr() {
-    if (marr_d == -1){
+    if (marr_d == -2209075200){
         return "NA";
     }
     char output[20];
@@ -76,7 +76,7 @@ std::string Family2::getChildrenList() {
 }
 
 std::string Family2::getDiv(){
-    if (div_d == -1){
+    if (div_d == -2209075200){
         return "NA";
     }
     char output[20];
