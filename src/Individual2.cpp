@@ -96,6 +96,9 @@ std::string Individual2::getBday(){
         timeinfo = localtime(&bday);
         strftime(output,20,"%F",timeinfo);
         std::string out2 = output;
+        if (out2 == "1899-12-31"){
+            return "NA";
+        }
         return out2;
     }
 }
@@ -115,6 +118,9 @@ std::string Individual2::getDday(){
         timeinfo = localtime(&dday);
         strftime(output,20,"%F",timeinfo);
         std::string out2 = output;
+        if (out2 == "1899-12-31"){
+            return "NA";
+        }
         return out2;
     }
 }

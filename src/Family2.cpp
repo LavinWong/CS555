@@ -37,6 +37,9 @@ std::string Family2::getMarr() {
     timeinfo = localtime(&marr_d);
     strftime(output,20,"%F",timeinfo);
     std::string out2 = output;
+    if (out2 == "1899-12-31"){
+        return "NA";
+    }
     return out2;
 }
 
@@ -84,6 +87,9 @@ std::string Family2::getDiv(){
     timeinfo = localtime(&div_d);
     strftime(output,20,"%F",timeinfo);
     std::string out2 = output;
+    if (out2 == "1899-12-31"){
+        return "NA";
+    }
     return out2;
 }
 std::string Family2::getHusName(){
