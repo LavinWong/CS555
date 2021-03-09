@@ -39,6 +39,9 @@ class Cppunit_tests: public Cppunit {
         // add test case for us06
         Repository repo;
         std::vector<std::string> result = {"@F5@"};
+        for (auto str: repo.us06()) {
+            std::cout<<str<<std::endl;
+        }
         // CHECKT(repo.us06() == result);
         CHECK(2,2);
 
