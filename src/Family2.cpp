@@ -102,7 +102,7 @@ std::string Family2::getWifeID(){
 
 std::time_t str_to_t_time(std::string str)
 {
-    if(str == "NA")
+    if(str == "NA" && str.length()<11)
     {
         tm tm1;
         tm1.tm_year = 0;
