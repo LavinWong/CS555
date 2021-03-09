@@ -107,7 +107,7 @@ std::string Individual2::getAlive(){
     }
 }
 std::string Individual2::getDday(){
-    if (dday == -1){
+    if (dday == -2209075200){
         return "NA";
     }else{
         char output[20];
