@@ -102,7 +102,7 @@ std::string Family2::getWifeID(){
 
 std::time_t str_to_t_time(std::string str)
 {
-    if(str == "NA" && str.length()<11)
+    if(str == "NA")
     {
         tm tm1;
         tm1.tm_year = 0;
@@ -119,7 +119,7 @@ std::time_t str_to_t_time(std::string str)
     tm tm1;
     char month_str2[3];
     std::string month_str;
-    int year, month, day, hour=0, minute=0, second=0;
+    int year=-1, month=-1, day=-1, hour=0, minute=0, second=0;
     sscanf(date, "%d %s %d", &day,&month_str2, &year);
     month_str = std::string(month_str2);
     if (month_str == "JAN"){
@@ -146,6 +146,19 @@ std::time_t str_to_t_time(std::string str)
         month = 11;
     }else if (month_str == "DEC"){
         month = 12;
+    }
+    if(year == -1||month == -1||day == -1)
+    {
+        tm tm1;
+        tm1.tm_year = 0;
+        tm1.tm_mon = 0;
+        tm1.tm_mday = 0;
+        tm1.tm_hour = 0;
+        tm1.tm_min = 0;
+        tm1.tm_sec = 0;
+        tm1.tm_isdst = 0;
+        time_t ans = mktime(&tm1);
+        return ans;
     }
     tm1.tm_year = year - 1900;
     tm1.tm_mon = month - 1;
