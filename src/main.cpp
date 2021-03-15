@@ -29,6 +29,12 @@ class Cppunit_tests: public Cppunit {
         // declare us01 unit test function.
         Repository repo;
         std::vector<std::string> result = {"@I7@", "@I14@", "@F1@", "@F2@"};
+        std::vector<std::string> result2 = repo.us01();
+        std::cout<<"-----US01_test------"<<std::endl;
+        for (auto str: result2){
+            std::cout<<str<<std::endl;
+        }
+        std::cout<<"-----US01_test_END------"<<std::endl;
         CHECKT(repo.us01() == result);
 
     }
