@@ -27,8 +27,8 @@ public:
 
     void print_table();
     std::vector<std::string> us01();
-    void us02();
-    void us03();
+    std::vector<std::string> us02();
+    std::vector<std::string> us03();
     void us04();
     void us05();
     std::vector<std::string> us06();
