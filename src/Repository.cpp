@@ -225,6 +225,10 @@ std::vector<std::string> Repository::us06() {
                 }else {
                     // do nothing
                 }
+                if (husDday < fam.getDiv())
+                    std::cout<< "ERROR: FAMILY: US06: "+fam.getID()+": Divorce "+fam.getDiv()+" before the Husband death "+husDday<<std::endl;
+                if (wifeDday < fam.getDiv())
+                    std::cout<< "ERROR: FAMILY: US06: "+fam.getID()+": Divorce "+fam.getDiv()+" before the Husband death "+wifeDday<<std::endl;
             }
 
         }
