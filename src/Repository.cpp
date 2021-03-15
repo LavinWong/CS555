@@ -84,7 +84,7 @@ std::vector<std::string> Repository::us01() {
                 }else {
                     // do nothing
                 }
-
+                std::cout<< "ERROR: INDIVIDUAL: US01: "+indi.getID()+": Birthday "+indi.getBday()+" occurs in the future."<<std::endl;
             }
         }
 
@@ -96,6 +96,7 @@ std::vector<std::string> Repository::us01() {
                 }else{
                     // do nothing
                 }
+                std::cout<< "ERROR: INDIVIDUAL: US01: "+indi.getID()+": Death "+indi.getDday()+" occurs in the future."<<std::endl;
             }
         }
     }
@@ -108,6 +109,7 @@ std::vector<std::string> Repository::us01() {
                 }else {
                     // do nothing
                 }
+                std::cout<< "ERROR: FAMILY: US01: "+fam.getID()+": Marriage "+fam.getMarr()+" occurs in the future."<<std::endl;
             }
         }
 
@@ -118,6 +120,7 @@ std::vector<std::string> Repository::us01() {
                 }else {
                     // do nothing
                 }
+                std::cout<< "ERROR: FAMILY: US01: "+fam.getID()+": Divorce "+fam.getDiv()+" occurs in the future."<<std::endl;
             }
         }
     }
