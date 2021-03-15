@@ -124,12 +124,73 @@ std::vector<std::string> Repository::us01() {
     return result;
 }
 
-void Repository::us02() {
+std::vector<std::string> Repository::us02() {
     // todo
+    std::vector<std::string> result = {};
+    for (auto indi: indiList)
+    {
+        if (indi.getBday()!="NA")
+        {
+            std::string personID;
+            personID = indi.getID()
+            for (auto fam: famList)
+            {
+                if (fam.getMarr()!="NA")
+                {
+                    std::string husBday;
+                    std::string wifeBday;
+                    if (personID == fam.getHusID())
+                    {
+                        husBday = indi.getBday();
+                    }
+                    else if (personID == fam.getWifeID())
+                    {
+                        wifeBday = indi.getBday();
+                    }
+                }
+            }
+            if (husBday < fam.getMarr() || wifeBday < fam.getMarr())
+            {
+                if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+                {
+                    result.push_back(indi.getID());
+                }
+                else
+                {
+                    // do nothing
+                }
+            }
+        }
+    }
+    return result;
 }
 
-void Repository::us03() {
+std::vector<std::string> Repository::us03() {
     // todo
+    std::vector<std::string> result = {};
+    for (auto indi: indiList)
+    {
+        std::string personID;
+        if (indi.getBday()!="NA")
+        {
+            if (indi.getDday()!="NA")
+            {
+                if(indi.getBday()<indi.getDday())
+                {
+                    if (std::find(result.begin(), result.end(), indi.getID())==result.end())
+                    {
+                        result.push_back(indi.getID());
+                    }
+                    else
+                    {
+                        // do nothing
+                    }
+                }
+            }
+        }
+    }
+    return result;
+    
 }
 
 void Repository::us04() {

@@ -17,6 +17,8 @@ class Cppunit_tests: public Cppunit {
 
         // for example: adding unit test for us01()
         us01_test();
+        us02_test();
+        us03_test();
         us06_test();
 
         // adding another unit test case
@@ -27,6 +29,22 @@ class Cppunit_tests: public Cppunit {
         // declare us01 unit test function.
         Repository repo;
         std::vector<std::string> result = {"@I7@", "@I14@", "@F1@", "@F2@"};
+        CHECKT(repo.us01() == result);
+
+    }
+
+    void us02_test(){
+        // declare us01 unit test function.
+        Repository repo;
+        std::vector<std::string> result = {"@I1@"};
+        CHECKT(repo.us01() == result);
+
+    }
+
+    void us03_test(){
+        // declare us01 unit test function.
+        Repository repo;
+        std::vector<std::string> result = {"@I1@"};
         CHECKT(repo.us01() == result);
 
     }
