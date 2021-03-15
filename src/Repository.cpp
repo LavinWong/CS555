@@ -135,10 +135,10 @@ std::vector<std::string> Repository::us02() {
             personID = indi.getID();
             for (auto fam: famList)
             {
+                std::string husBday;
+                std::string wifeBday;
                 if (fam.getMarr()!="NA")
                 {
-                    std::string husBday;
-                    std::string wifeBday;
                     if (personID == fam.getHusID())
                     {
                         husBday = indi.getBday();
