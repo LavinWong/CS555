@@ -148,16 +148,17 @@ std::vector<std::string> Repository::us02() {
                         wifeBday = indi.getBday();
                     }
                 }
-            }
-            if (husBday < fam.getMarr() || wifeBday < fam.getMarr())
-            {
-                if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+            
+                if (husBday < fam.getMarr() || wifeBday < fam.getMarr())
                 {
-                    result.push_back(indi.getID());
-                }
-                else
-                {
-                    // do nothing
+                    if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+                    {
+                        result.push_back(indi.getID());
+                    }
+                    else
+                    {
+                     // do nothing
+                    }
                 }
             }
         }
