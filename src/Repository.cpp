@@ -132,7 +132,7 @@ std::vector<std::string> Repository::us02() {
         if (indi.getBday()!="NA")
         {
             std::string personID;
-            personID = indi.getID()
+            personID = indi.getID();
             for (auto fam: famList)
             {
                 if (fam.getMarr()!="NA")
