@@ -228,7 +228,7 @@ std::vector<std::string> Repository::us06() {
                 if (husDday < fam.getDiv())
                     std::cout<< "ERROR: FAMILY: US06: "+fam.getID()+": Divorce "+fam.getDiv()+" before the Husband death "+husDday<<std::endl;
                 if (wifeDday < fam.getDiv())
-                    std::cout<< "ERROR: FAMILY: US06: "+fam.getID()+": Divorce "+fam.getDiv()+" before the Husband death "+wifeDday<<std::endl;
+                    std::cout<< "ERROR: FAMILY: US06: "+fam.getID()+": Divorce "+fam.getDiv()+" before the Wife death "+wifeDday<<std::endl;
             }
 
         }
