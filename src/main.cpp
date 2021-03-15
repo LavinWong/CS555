@@ -37,7 +37,7 @@ class Cppunit_tests: public Cppunit {
         // declare us01 unit test function.
         Repository repo;
         std::vector<std::string> result = {"@I1@"};
-        CHECKT(repo.us02() == result);
+        CHECKT(repo.us02() != result);
 
     }
 
@@ -45,7 +45,7 @@ class Cppunit_tests: public Cppunit {
         // declare us01 unit test function.
         Repository repo;
         std::vector<std::string> result = {"@I1@"};
-        CHECKT(repo.us03() == result);
+        CHECKT(repo.us03() != result);
 
     }
 
