@@ -131,36 +131,46 @@ std::vector<std::string> Repository::us02()
 {
     // todo
     std::vector<std::string> result = {};
-    for (auto fam: famList)
+    for (auto indi: indiList)
     {
-        if(fam.getMarr()!="NA")
+        if (indi.getBday() != "NA")
         {
             std::string husBday;
             std::string wifeBday;
-            for (auto indi: indiList)
+            std::string Marrday;
+            for(auto fam: famList)
             {
-                if (indi.getID() == fam.getHusID())
+                if (fam.getMarr()!="NA")
                 {
-                    husBday = indi.getBday();
+                   
+                    if (indi.getID() == fam.getHusID())
+                    {
+                        husBday = indi.getBday();
+                        Marrday = fam.getMarr();
+                    }
+                    else if (indi.getID() == fam.getWifeID())
+                    {
+                        wifeBday = indi.getBday();
+                        Marrday = fam.getMarr();
+                    }
                 }
-                else if (indi.getID() == fam.getWifeID())
-                {
-                    wifeBday = indi.getBday();
-                } 
+            
+                
             }
-            if (husBday < fam.getMarr() || wifeBday < fam.getMarr())
+            if(husBday < Marrday || wifeBday < Marrday)
             {
-                if(std::find(result.begin(), result.end(), fam.getID())==result.end())
+                if(std::find(result.begin(), result.end(), indi.getID())==result.end())
                 {
-                    result.push_back(fam.getID());
+                    result.push_back(indi.getID());
+                    // print error message 
                 }
                 else
                 {
                     // do nothing
                 }
             }
+
         }
-      
     }
     return result;
 }
