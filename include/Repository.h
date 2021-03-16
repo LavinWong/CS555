@@ -29,7 +29,7 @@ public:
     std::vector<std::string> us01();
     std::vector<std::string> us02();
     std::vector<std::string> us03();
-    void us04();
+    std::vector<std::string> us04();
     void us05();
     std::vector<std::string> us06();
     
