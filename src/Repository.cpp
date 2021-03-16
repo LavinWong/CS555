@@ -127,44 +127,40 @@ std::vector<std::string> Repository::us01() {
     return result;
 }
 
-std::vector<std::string> Repository::us02() {
+std::vector<std::string> Repository::us02()
+{
     // todo
     std::vector<std::string> result = {};
-    for (auto indi: indiList)
+    for (auto fam: famList)
     {
-        if (indi.getBday()!="NA")
+        if(fam.getMarr()!="NA")
         {
-            std::string personID;
-            personID = indi.getID();
-            for (auto fam: famList)
+            std::string husBday;
+            std::string wifeBday;
+            for (auto indi: indiList)
             {
-                std::string husBday;
-                std::string wifeBday;
-                if (fam.getMarr()!="NA")
+                if (indi.getID() == fam.getHusID())
                 {
-                    if (personID == fam.getHusID())
-                    {
-                        husBday = indi.getBday();
-                    }
-                    else if (personID == fam.getWifeID())
-                    {
-                        wifeBday = indi.getBday();
-                    }
+                    husBday = indi.getBday();
                 }
-            
-                if (husBday < fam.getMarr() || wifeBday < fam.getMarr())
+                else if (indi.getID() == fam.getWifeID())
                 {
-                    if(std::find(result.begin(), result.end(), indi.getID())==result.end())
-                    {
-                        result.push_back(indi.getID());
-                    }
-                    else
-                    {
-                     // do nothing
-                    }
+                    wifeBday = indi.getBday();
+                } 
+            }
+            if (husBday < fam.getMarr() || wifeBday < fam.getMarr())
+            {
+                if(std::find(result.begin(), result.end(), fam.getID())==result.end())
+                {
+                    result.push_back(fam.getID());
+                }
+                else
+                {
+                    // do nothing
                 }
             }
         }
+      
     }
     return result;
 }
