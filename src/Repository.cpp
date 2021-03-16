@@ -246,8 +246,50 @@ std::vector<std::string> Repository::us04() {
     return result;
 }
 
-void Repository::us05() {
-    // todo
+std::vector<std::string> Repository::us05() {
+    std::vector<std::string> result = {};
+    std::string husId = "";
+    std::string wifeId = "";
+    std::string husDday = "";
+    std::string wifeDday = "";
+    for (auto fam: famList) {
+        if (fam.getMarr() != "NA") {
+            std::string marriedTime = fam.getMarr();
+            if (fam.getHusID() != "NA") {
+                husId = fam.getHusID();
+            }
+            if (fam.getWifeID() != "NA") {
+                wifeId = fam.getWifeID();
+            }
+            for (auto indi: indiList) {
+                if (indi.getID() == husId) {
+                    husDday = indi.getDday();
+                }
+                else if (indi.getID() == wifeId) {
+                    wifeDday = indi.getDday();
+                }
+            }
+            if ((husDday < marriedTime) || (wifeDday < marriedTime)) {
+                if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
+                    result.push_back(fam.getID());
+                } else {
+                    // do nothing
+                }
+                std::cout << "ERROR: FAMILY: US05: " + fam.getID() + ": Death of either spouse in fam " + fam.getMarr() + " occurs before married." << std::endl;
+            }
+            else {
+                if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
+                    result.push_back("NA");
+                } else {
+                    // do nothing
+                }
+            }
+        }
+        else {
+            std::cout << "ERROR: FAMILY: US05: " + fam.getID() + ": There is no married date provided." << std::endl;
+        }
+    }
+    return result;
 }
 
 std::vector<std::string> Repository::us06() {
