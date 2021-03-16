@@ -20,6 +20,7 @@ class Cppunit_tests: public Cppunit {
         us02_test();
         us03_test();
         us04_test();
+        us05_test();
         us06_test();
 
         // adding another unit test case
@@ -84,6 +85,13 @@ class Cppunit_tests: public Cppunit {
         Repository repo;
         std::vector<std::string> result = {"@F2@"};
         std::vector<std::string> result1 = repo.us04();
+        CHECKT(result1 == result);
+    }
+
+    void us05_test() {
+        Repository repo;
+        std::vector<std::string> result = {"NA"};
+        std::vector<std::string> result1 = repo.us05();
         CHECKT(result1 == result);
     }
 
