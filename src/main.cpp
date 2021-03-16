@@ -75,7 +75,7 @@ class Cppunit_tests: public Cppunit {
              std::cout<<str<<std::endl;
          }
          std::cout<<"-----US03_result_END------"<<std::endl;
-        CHECKT(repo.us03() != result);
+        CHECKT(repo.us03() == result);
 
     }
 
