@@ -44,11 +44,17 @@ class Cppunit_tests: public Cppunit {
         Repository repo;
         std::vector<std::string> result = {"@I1@"};
         std::vector<std::string> result2 = repo.us02();
+        std::vector<std::string> result3 = result
         std::cout<<"-----US02_test------"<<std::endl;
          for (auto str: result2){
              std::cout<<str<<std::endl;
          }
          std::cout<<"-----US02_test_END------"<<std::endl;
+        std::cout<<"-----US02_result------"<<std::endl;
+         for (auto str: result3){
+             std::cout<<str<<std::endl;
+         }
+         std::cout<<"-----US02_result_END------"<<std::endl;
         CHECKT(repo.us02() != result);
 
     }
@@ -58,11 +64,17 @@ class Cppunit_tests: public Cppunit {
         Repository repo;
         std::vector<std::string> result = {"@I1@"};
         std::vector<std::string> result2 = repo.us03();
+        std::vector<std::string> result3 = result
         std::cout<<"-----US03_test------"<<std::endl;
          for (auto str: result2){
              std::cout<<str<<std::endl;
          }
          std::cout<<"-----US03_test_END------"<<std::endl;
+        std::cout<<"-----US03_result------"<<std::endl;
+         for (auto str: result3){
+             std::cout<<str<<std::endl;
+         }
+         std::cout<<"-----US03_result_END------"<<std::endl;
         CHECKT(repo.us03() != result);
 
     }
