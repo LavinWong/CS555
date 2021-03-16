@@ -278,7 +278,7 @@ std::vector<std::string> Repository::us05() {
                 std::cout << "ERROR: FAMILY: US05: " + fam.getID() + ": Death of either spouse in fam " + fam.getMarr() + " occurs before married." << std::endl;
             }
             else {
-                if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
+                if (std::find(result.begin(), result.end(), "NA") == result.end()) {
                     result.push_back("NA");
                 } else {
                     // do nothing
