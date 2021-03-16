@@ -174,12 +174,13 @@ std::vector<std::string> Repository::us03() {
     std::vector<std::string> result = {};
     for (auto indi: indiList)
     {
-        std::string personID;
         if (indi.getBday()!="NA")
         {
+            std::string bday=indi.getBday();
             if (indi.getDday()!="NA")
             {
-                if(indi.getBday()<indi.getDday())
+                std::string dday=indi.getDday();
+                if(bday<dday)
                 {
                     if (std::find(result.begin(), result.end(), indi.getID())==result.end())
                     {
@@ -193,8 +194,7 @@ std::vector<std::string> Repository::us03() {
             }
         }
     }
-    return result;
-    
+    return result;    
 }
 
 void Repository::us04() {
