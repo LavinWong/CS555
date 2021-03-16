@@ -215,8 +215,35 @@ std::vector<std::string> Repository::us03() {
     return result;    
 }
 
-void Repository::us04() {
-    // todo
+std::vector<std::string> Repository::us04() {
+    std::vector<std::string> result = {};
+    for (auto fam: famList) {
+        //std::cout << fam.getDiv() << std::endl;
+        if ((fam.getMarr() != "NA") && (fam.getDiv() != "NA")) {
+            std::string marrTime;
+            marrTime = fam.getMarr();
+            std::string divTime;
+            divTime = fam.getDiv();
+            if (marrTime > divTime) {
+                if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
+                    result.push_back(fam.getID());
+                } else {
+                    // do nothing
+                }
+                std::cout << "ERROR: FAMILY: US04: " + fam.getID() + ": Marriage " + fam.getMarr() + " occurs after divorce." << std::endl;
+            }
+        }
+        else if ((fam.getMarr() == "NA") && (fam.getDiv() != "NA")) {
+            std::cout << "ERROR: FAMILY: US04: " + fam.getID() + ": There is no married date provided." << std::endl;
+        }
+        else if ((fam.getMarr() != "NA") && (fam.getDiv() == "NA")) {
+            std::cout << "ERROR: FAMILY: US04: " + fam.getID() + ": There is no divorced date provided." << std::endl;
+        }
+        else if ((fam.getMarr() == "NA") && (fam.getDiv() == "NA")) {
+            std::cout << "ERROR: FAMILY: US04: " + fam.getID() + ": There is no married and divorced date provided." << std::endl;
+        }
+    }
+    return result;
 }
 
 void Repository::us05() {
