@@ -169,6 +169,10 @@ std::vector<std::string> Repository::us02()
                     // do nothing
                 }
             }
+            else
+            {
+                std::cout<< "ERROR: INDIVIDUAL: US02: "+indi.getID()+": Birthday "+indi.getBday()+" is later than marrage."<<std::endl;
+            }
 
         }
     }
@@ -196,6 +200,10 @@ std::vector<std::string> Repository::us03() {
                     {
                         // do nothing
                     }
+                }
+                else
+                {
+                    std::cout<< "ERROR: INDIVIDUAL: US01: "+indi.getID()+": Birthday "+indi.getBday()+" is later than death."<<std::endl;
                 }
             }
         }
