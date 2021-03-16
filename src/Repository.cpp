@@ -169,7 +169,7 @@ std::vector<std::string> Repository::us02()
                     // do nothing
                 }
             }
-            else if(Marrday=="NA")
+            else if(Marrday=="")
             {
                 std::cout<< "ERROR: INDIVIDUAL: US02: "+indi.getID()+": There is no currrect marryage date."<<std::endl;
             }
