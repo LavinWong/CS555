@@ -169,9 +169,13 @@ std::vector<std::string> Repository::us02()
                     // do nothing
                 }
             }
+            else if(Marrday=="NA")
+            {
+                std::cout<< "ERROR: INDIVIDUAL: US02: "+indi.getID()+": There is no currrect marryage date."<<std::endl;
+            }
             else
             {
-                std::cout<< "ERROR: INDIVIDUAL: US02: "+indi.getID()+": Birthday "+indi.getBday()+" is later than marrage."<<std::endl;
+                 std::cout<< "ERROR: INDIVIDUAL: US02: "+indi.getID()+": Birthday "+indi.getBday()+" is later than marrage."<<std::endl;
             }
 
         }
