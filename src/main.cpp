@@ -43,6 +43,12 @@ class Cppunit_tests: public Cppunit {
         // declare us01 unit test function.
         Repository repo;
         std::vector<std::string> result = {"@I1@"};
+        std::vector<std::string> result2 = repo.us02();
+        std::cout<<"-----US02_test------"<<std::endl;
+         for (auto str: result2){
+             std::cout<<str<<std::endl;
+         }
+         std::cout<<"-----US02_test_END------"<<std::endl;
         CHECKT(repo.us02() != result);
 
     }
@@ -51,6 +57,12 @@ class Cppunit_tests: public Cppunit {
         // declare us01 unit test function.
         Repository repo;
         std::vector<std::string> result = {"@I1@"};
+        std::vector<std::string> result2 = repo.us03();
+        std::cout<<"-----US03_test------"<<std::endl;
+         for (auto str: result2){
+             std::cout<<str<<std::endl;
+         }
+         std::cout<<"-----US03_test_END------"<<std::endl;
         CHECKT(repo.us03() != result);
 
     }
