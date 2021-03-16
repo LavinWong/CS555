@@ -29,7 +29,8 @@ void Family2::setMarr(std::string marr_d2) {
 }
 
 std::string Family2::getMarr() {
-    if (marr_d == -2209075200){
+    //if (marr_d == -2209075200){
+    if (marr_d == str_to_t_time("NA")) {
         return "NA";
     }
     char output[20];
@@ -41,7 +42,7 @@ std::string Family2::getMarr() {
 }
 
 void Family2::setDiv(std::string div_d2){
-    div_d = str_to_t_time(div_d2);
+    div_d = str_to_t_time(div_d2);   
 }
 
 void Family2::setHusName(std::string hus_name2){
@@ -76,7 +77,8 @@ std::string Family2::getChildrenList() {
 }
 
 std::string Family2::getDiv(){
-    if (div_d == -2209075200){
+    //if (div_d == -2209075200){
+    if (div_d == str_to_t_time("NA")) {
         return "NA";
     }
     char output[20];
