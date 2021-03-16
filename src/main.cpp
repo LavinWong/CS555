@@ -42,7 +42,7 @@ class Cppunit_tests: public Cppunit {
     void us02_test(){
         // declare us01 unit test function.
         Repository repo;
-        std::vector<std::string> result = {"@I1@"};
+        std::vector<std::string> result = {"@I7@", "@I14@", "@F1@", "@F2@"};
         std::vector<std::string> result2 = repo.us02();
         std::vector<std::string> result3 = result;
         std::cout<<"-----US02_test------"<<std::endl;
