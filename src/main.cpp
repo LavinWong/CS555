@@ -82,7 +82,7 @@ class Cppunit_tests: public Cppunit {
 
     void us04_test() {
         Repository repo;
-        std::vector<std::string> result = {"@F1@"};
+        std::vector<std::string> result = {"@F2@"};
         std::vector<std::string> result1 = repo.us04();
         CHECKT(result1 == result);
     }
