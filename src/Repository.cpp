@@ -180,7 +180,7 @@ std::vector<std::string> Repository::us03() {
             if (indi.getDday()!="NA")
             {
                 std::string dday=indi.getDday();
-                if(bday>dday)
+                if(bday<dday)
                 {
                     if (std::find(result.begin(), result.end(), indi.getID())==result.end())
                     {
