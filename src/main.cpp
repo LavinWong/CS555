@@ -44,7 +44,7 @@ class Cppunit_tests: public Cppunit {
         Repository repo;
         std::vector<std::string> result = {"@I1@"};
         std::vector<std::string> result2 = repo.us02();
-        std::vector<std::string> result3 = result
+        std::vector<std::string> result3 = result;
         std::cout<<"-----US02_test------"<<std::endl;
          for (auto str: result2){
              std::cout<<str<<std::endl;
@@ -64,7 +64,7 @@ class Cppunit_tests: public Cppunit {
         Repository repo;
         std::vector<std::string> result = {"@I1@"};
         std::vector<std::string> result2 = repo.us03();
-        std::vector<std::string> result3 = result
+        std::vector<std::string> result3 = result;
         std::cout<<"-----US03_test------"<<std::endl;
          for (auto str: result2){
              std::cout<<str<<std::endl;
