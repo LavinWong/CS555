@@ -207,7 +207,7 @@ std::vector<std::string> Repository::us03() {
                 }
                 else
                 {
-                    std::cout<< "ERROR: INDIVIDUAL: US01: "+indi.getID()+": Birthday "+indi.getBday()+" is later than death."<<std::endl;
+                    std::cout<< "ERROR: INDIVIDUAL: US03: "+indi.getID()+": Birthday "+indi.getBday()+" is later than death."<<std::endl;
                 }
             }
         }
