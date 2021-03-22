@@ -333,6 +333,7 @@ std::vector<std::string> Repository::us09() {
     {
         std::string husBday;
         std::string wifeBday;
+        std::vector<std::string> childlist = {};
         if (fam.getMarr()!="NA")
         {
             childlist = fam.getChildrenList();
@@ -355,7 +356,7 @@ std::vector<std::string> Repository::us09() {
                 }
             }
         }
-        for(i=0;i<childlist.size();i++)
+        for(int i=0;i<childlist.size();i++)
         {
             std::string childBday;
             for (auto indi: indiList)
