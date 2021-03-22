@@ -22,6 +22,12 @@ class Cppunit_tests: public Cppunit {
         us04_test();
         us05_test();
         us06_test();
+        us07_test();
+        us09_test();
+        us10_test();
+        us12_test();
+        us14_test();
+        us21_test();
 
         // adding another unit test case
         another_unit_test();
