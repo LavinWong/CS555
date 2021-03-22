@@ -323,3 +323,22 @@ std::vector<std::string> Repository::us06() {
     }
     return result;
 }
+std::vector<std::string> Repository::us07() {
+    // todo
+}
+std::vector<std::string> Repository::us09() {
+    // todo
+}
+std::vector<std::string> Repository::us10() {
+    // todo
+}
+std::vector<std::string> Repository::us12() {
+    // todo
+}
+std::vector<std::string> Repository::us14() {
+    // todo
+}
+std::vector<std::string> Repository::us21() {
+    // todo
+}
+
