@@ -333,7 +333,7 @@ std::vector<std::string> Repository::us09() {
     {
         std::string husBday;
         std::string wifeBday;
-        //std::vector<std::string> childlist = {};
+        std::vector<std::string> childlist = {};
         if (fam.getMarr()!="NA")
         {
             //std::vector<std::string> childlist = fam.getChildrenList();
