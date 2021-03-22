@@ -328,6 +328,59 @@ std::vector<std::string> Repository::us07() {
 }
 std::vector<std::string> Repository::us09() {
     // todo
+    std::vector<std::string> result = {};
+    for (auto fam: famList)
+    {
+        std::string husBday;
+        std::string wifeBday;
+        if (fam.getMarr()!="NA")
+        {
+            childlist = fam.getChildrenList();
+        }
+        else
+        {
+            return result;
+        }
+        for (auto indi: indiList)
+        {
+            if (fam.getMarr()!="NA")
+            {              
+                if (indi.getID() == fam.getHusID())
+                {
+                    husBday = indi.getBday();
+                }
+                else if (indi.getID() == fam.getWifeID())
+                {
+                    wifeBday = indi.getBday();
+                }
+            }
+        }
+        for(i=0;i<childlist.size();i++)
+        {
+            std::string childBday;
+            for (auto indi: indiList)
+            {
+                if (indi.getID() == childlist[i])
+                {
+                    childBday = indi.getBday(); 
+                }
+            
+                if(husBday < childBday && wifeBday < childBday) 
+                {
+                    if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+                    {
+                        result.push_back(findi.getID());
+                    }
+                    else 
+                    {
+                        // do nothing
+                    }
+                }
+            }
+        }
+        
+    }
+    return result;  
 }
 std::vector<std::string> Repository::us10() {
     // todo
