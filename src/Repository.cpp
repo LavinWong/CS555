@@ -333,10 +333,10 @@ std::vector<std::string> Repository::us09() {
     {
         std::string husBday;
         std::string wifeBday;
-        std::vector<std::string> childlist = {};
+        //std::vector<std::string> childlist = {};
         if (fam.getMarr()!="NA")
         {
-            childlist = fam.getChildrenList();
+            std::vector<std::string> childlist = fam.getChildrenList();
         }
         else
         {
@@ -370,7 +370,7 @@ std::vector<std::string> Repository::us09() {
                 {
                     if(std::find(result.begin(), result.end(), indi.getID())==result.end())
                     {
-                        result.push_back(findi.getID());
+                        result.push_back(indi.getID());
                     }
                     else 
                     {
