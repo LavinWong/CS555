@@ -336,7 +336,9 @@ std::vector<std::string> Repository::us09() {
         //std::vector<std::string> childlist = {};
         if (fam.getMarr()!="NA")
         {
-            std::vector<std::string> childlist = fam.getChildrenList();
+            #std::vector<std::string> childlist = fam.getChildrenList();
+            copy(fam.getChildrenList().begin(),  fam.getChildrenList().end(), childlist.begin());
+
         }
         else
         {
