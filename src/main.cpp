@@ -102,6 +102,39 @@ class Cppunit_tests: public Cppunit {
         CHECKT(repo.us06() == result);
 
     }
+    
+    void us07_test(){
+    }
+    
+    void us09_test(){
+        Repository repo;
+        std::vector<std::string> result = {"@I1@", "@I2@","@I5@"};
+        std::vector<std::string> result2 = repo.us09();
+        std::vector<std::string> result3 = result;
+        std::cout<<"-----US09_test------"<<std::endl;
+        for (auto str: result2){
+            std::cout<<str<<std::endl;
+         }
+         std::cout<<"-----US09_test_END------"<<std::endl;
+         std::cout<<"-----US09_result------"<<std::endl;
+         for (auto str: result3){
+             std::cout<<str<<std::endl;
+         }
+         std::cout<<"-----US09_result_END------"<<std::endl;
+        CHECKT(repo.us09() != result);
+    }
+    
+    void us10_test(){
+    }
+    
+     void us12_test(){
+    }
+    
+     void us14_test(){
+    }
+    
+     void us21_test(){
+    }
 
     void another_unit_test() {
         // example unit test case :D (showcase needed)
