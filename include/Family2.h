@@ -46,6 +46,8 @@ public:
     std::string getChildrenList();
     void setChildrenList(std::string child_id);
 
+    std::vector<std::string> getChildrenVector();
+
 };
 
 

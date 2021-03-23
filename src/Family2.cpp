@@ -76,6 +76,10 @@ std::string Family2::getChildrenList() {
     return output;
 }
 
+std::vector<std::string> Family2::getChildrenVector() {
+    return children_id;
+}
+
 std::string Family2::getDiv(){
     //if (div_d == -2209075200){
     if (div_d == str_to_t_time("NA")) {
