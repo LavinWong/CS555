@@ -351,31 +351,32 @@ std::vector<std::string> Repository::us09() {
         }
         //for(int i=0;i<childlist.size();i++)
         //for (std::vector<std::string>::iterator it=fam.getChildrenList().begin();it!=fam.getChildrenList().end();it++)
-        if(fam.getChildrenList() != NULL)
+        if(fam.getChildrenList().size()!=0)
         {
             for (auto id:fam.getChildrenList())
             {
-                std::string childBday;
-            //result.push_back(childlist[i]);
-                for (auto indi: indiList)
-                {
-                    if (indi.getID() == id)
-                    {
-                        childBday = indi.getBday(); 
-                    }
+                std::cout<<id<<std::endl;
+            //     std::string childBday;
+            // //result.push_back(childlist[i]);
+            //     for (auto indi: indiList)
+            //     {
+            //         if (indi.getID() == id)
+            //         {
+            //             childBday = indi.getBday(); 
+            //         }
             
-                    if(husBday < childBday && wifeBday < childBday) 
-                    {
-                        if(std::find(result.begin(), result.end(), indi.getID())==result.end())
-                        {
-                            result.push_back(indi.getID());
-                        }
-                        else 
-                        {
-                            // do nothing
-                        }
-                    }
-                }
+            //         if(husBday < childBday && wifeBday < childBday) 
+            //         {
+            //             if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+            //             {
+            //                 result.push_back(indi.getID());
+            //             }
+            //             else 
+            //             {
+            //                 // do nothing
+            //             }
+            //         }
+            //     }
             }
         }
         
