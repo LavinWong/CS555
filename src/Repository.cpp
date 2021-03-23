@@ -357,7 +357,7 @@ std::vector<std::string> Repository::us09() {
             //result.push_back(childlist[i]);
             for (auto indi: indiList)
             {
-                if (indi.getID() == *id)
+                if (indi.getID() == id)
                 {
                     childBday = indi.getBday(); 
                 }
