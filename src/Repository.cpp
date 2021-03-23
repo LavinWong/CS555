@@ -338,7 +338,7 @@ std::vector<std::string> Repository::us09() {
         {
             //std::vector<std::string> childlist = fam.getChildrenList();
             copy(fam.getChildrenList().begin(),  fam.getChildrenList().end(), childlist.begin());
-
+             result.push_back(0);
         }
         else
         {
