@@ -350,7 +350,7 @@ std::vector<std::string> Repository::us09() {
              }      
         }
         //for(int i=0;i<childlist.size();i++)
-        for (vector<std::string>::iterator it=fam.getChildrenList().begin();it!=fam.getChildrenList().end();it++)
+        for (std::vector<std::string>::iterator it=fam.getChildrenList().begin();it!=fam.getChildrenList().end();it++)
         {
             std::string childBday;
             //result.push_back(childlist[i]);
