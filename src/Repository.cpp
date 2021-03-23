@@ -334,33 +334,29 @@ std::vector<std::string> Repository::us09() {
         std::string husBday;
         std::string wifeBday;
         std::vector<std::string> childlist = {};
-        if (fam.getMarr()!="NA")
-        {
-            //std::vector<std::string> childlist = fam.getChildrenList();
-            copy(fam.getChildrenList().begin(),  fam.getChildrenList().end(), childlist.begin());
-        }
         
+            //std::vector<std::string> childlist = fam.getChildrenList();
+        copy(fam.getChildrenList().begin(),  fam.getChildrenList().end(), childlist.begin());
+            
         for (auto indi: indiList)
         {
-            if (fam.getMarr()!="NA")
-            {              
-                if (indi.getID() == fam.getHusID())
-                {
-                    husBday = indi.getBday();
-                }
-                else if (indi.getID() == fam.getWifeID())
-                {
-                    wifeBday = indi.getBday();
-                }
-            }
+             if (indi.getID() == fam.getHusID())
+             {
+                husBday = indi.getBday();
+             }
+             else if (indi.getID() == fam.getWifeID())
+             {
+                wifeBday = indi.getBday();
+             }      
         }
-        for(int i=0;i<childlist.size();i++)
+        //for(int i=0;i<childlist.size();i++)
+        for (auto n :fam.getChildrenList())
         {
             std::string childBday;
             //result.push_back(childlist[i]);
             for (auto indi: indiList)
             {
-                if (indi.getID() == childlist[i])
+                if (indi.getID() == n)
                 {
                     childBday = indi.getBday(); 
                 }
