@@ -355,28 +355,28 @@ std::vector<std::string> Repository::us09() {
         {   
             for (auto id:fam.getChildrenVector())
             {   
-                std::cout<<id<<std::endl;
-            //     std::string childBday;
+                //std::cout<<id<<std::endl;
+                std::string childBday;
             // //result.push_back(childlist[i]);
-            //     for (auto indi: indiList)
-            //     {
-            //         if (indi.getID() == id)
-            //         {
-            //             childBday = indi.getBday(); 
-            //         }
+                for (auto indi: indiList)
+                {
+                    if (indi.getID() == id)
+                    {
+                        childBday = indi.getBday(); 
+                    }
             
-            //         if(husBday < childBday && wifeBday < childBday) 
-            //         {
-            //             if(std::find(result.begin(), result.end(), indi.getID())==result.end())
-            //             {
-            //                 result.push_back(indi.getID());
-            //             }
-            //             else 
-            //             {
-            //                 // do nothing
-            //             }
-            //         }
-            //     }
+                    if(husBday < childBday && wifeBday < childBday) 
+                    {
+                        if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+                        {
+                            result.push_back(indi.getID());
+                        }
+                        else 
+                        {
+                             // do nothing
+                        }
+                    }
+                }
             }
         }
         
