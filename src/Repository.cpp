@@ -355,7 +355,7 @@ std::vector<std::string> Repository::us09() {
         {   
             for (auto id:fam.getChildrenVector())
             {   
-                std::cout<<id<<std::endl;
+                //std::cout<<id<<std::endl;
                 std::string childBday;
                 for (auto indi: indiList)
                 {
