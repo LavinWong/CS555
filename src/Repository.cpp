@@ -366,14 +366,14 @@ std::vector<std::string> Repository::us09() {
             
                     if(husBday < childBday && wifeBday < childBday) 
                     {
-                        //if(std::find(result.begin(), result.end(), id)==result.end())
-                        //{
+                        if(std::find(result.begin(), result.end(), id)==result.end())
+                        {
                             result.push_back(id);
-                        //}
-                       // else 
-                        //{
+                        }
+                        else 
+                        {
                              // do nothing
-                        //}
+                        }
                     }
                 }
             }
