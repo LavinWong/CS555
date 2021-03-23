@@ -333,11 +333,11 @@ std::vector<std::string> Repository::us09() {
     {
         std::string husBday;
         std::string wifeBday;
-        std::vector<std::string> childlist = {};
+        std::vector<std::string> childlist(fam.getChildrenList());
         
             //std::vector<std::string> childlist = fam.getChildrenList();
-        copy(fam.getChildrenList().begin(),  fam.getChildrenList().end(), childlist.begin());
-        return fam.getChildrenList();    
+        //copy(fam.getChildrenList().begin(),  fam.getChildrenList().end(), childlist.begin());
+          
         for (auto indi: indiList)
         {
              if (indi.getID() == fam.getHusID())
