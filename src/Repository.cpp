@@ -339,10 +339,7 @@ std::vector<std::string> Repository::us09() {
             //std::vector<std::string> childlist = fam.getChildrenList();
             copy(fam.getChildrenList().begin(),  fam.getChildrenList().end(), childlist.begin());
         }
-        else
-        {
-            return result;
-        }
+        
         for (auto indi: indiList)
         {
             if (fam.getMarr()!="NA")
@@ -360,7 +357,7 @@ std::vector<std::string> Repository::us09() {
         for(int i=0;i<childlist.size();i++)
         {
             std::string childBday;
-            result.push_back(childlist[i]);
+            //result.push_back(childlist[i]);
             for (auto indi: indiList)
             {
                 if (indi.getID() == childlist[i])
