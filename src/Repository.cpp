@@ -350,13 +350,14 @@ std::vector<std::string> Repository::us09() {
              }      
         }
         //for(int i=0;i<childlist.size();i++)
-        for (std::vector<std::string>::iterator it=fam.getChildrenList().begin();it!=fam.getChildrenList().end();it++)
+        //for (std::vector<std::string>::iterator it=fam.getChildrenList().begin();it!=fam.getChildrenList().end();it++)
+        for (auto id:fam.getChildrenList())
         {
             std::string childBday;
             //result.push_back(childlist[i]);
             for (auto indi: indiList)
             {
-                if (indi.getID() == *it)
+                if (indi.getID() == *id)
                 {
                     childBday = indi.getBday(); 
                 }
