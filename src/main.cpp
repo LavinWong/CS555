@@ -114,7 +114,7 @@ class Cppunit_tests: public Cppunit {
     
     void us09_test(){
         Repository repo;
-        std::vector<std::string> result = {"@I1@", "@I2@","@I5@"};
+        std::vector<std::string> result = {"@I3@", "@I4@","@I5@","@I6@","@I7@","@I8@","@I9@","@I10@","@I11@","@I12@","@I13@","@I14@","@I15@","@I16@","@I17@","@I18@","@I19@","@I20@","@I21@","@I22@","@I23@","@I2@"};
         std::vector<std::string> result2 = repo.us09();
         std::vector<std::string> result3 = result;
         std::cout<<"-----US09_test------"<<std::endl;
@@ -127,7 +127,7 @@ class Cppunit_tests: public Cppunit {
              std::cout<<str<<std::endl;
          }
          std::cout<<"-----US09_result_END------"<<std::endl;
-        CHECKT(repo.us09() != result);
+        CHECKT(repo.us09() == result);
     }
     
     void us10_test(){
