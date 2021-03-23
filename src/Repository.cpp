@@ -387,6 +387,10 @@ std::vector<std::string> Repository::us09() {
 }
 std::vector<std::string> Repository::us10() {
     // todo
+    std::vector<std::string> result = {};
+    
+    return result;
+    
 }
 std::vector<std::string> Repository::us12() {
     // todo
