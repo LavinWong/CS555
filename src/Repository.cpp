@@ -334,9 +334,6 @@ std::vector<std::string> Repository::us09() {
         std::string husBday;
         std::string wifeBday;
         std::vector<std::string> childlist;
-        
-        //std::vector<std::string> childlist = fam.getChildrenList();
-        //copy(fam.getChildrenList().begin(),  fam.getChildrenList().end(), childlist.begin());
           
         for (auto indi: indiList)
         {
@@ -349,8 +346,7 @@ std::vector<std::string> Repository::us09() {
                 wifeBday = indi.getBday();
              }      
         }
-        //for(int i=0;i<childlist.size();i++)
-        //for (std::vector<std::string>::iterator it=fam.getChildrenList().begin();it!=fam.getChildrenList().end();it++)
+
         if(fam.getChildrenVector().size()!=0)
         {   
             for (auto id:fam.getChildrenVector())
