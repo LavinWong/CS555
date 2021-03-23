@@ -333,7 +333,7 @@ std::vector<std::string> Repository::us09() {
     {
         std::string husBday;
         std::string wifeBday;
-        std::vector<std::string> childlist.swap(fam.getChildrenList());
+        std::vector<std::string> childlist();childlist.swap(fam.getChildrenList());
         
             //std::vector<std::string> childlist = fam.getChildrenList();
         //copy(fam.getChildrenList().begin(),  fam.getChildrenList().end(), childlist.begin());
