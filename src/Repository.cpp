@@ -337,7 +337,7 @@ std::vector<std::string> Repository::us09() {
         
             //std::vector<std::string> childlist = fam.getChildrenList();
         copy(fam.getChildrenList().begin(),  fam.getChildrenList().end(), childlist.begin());
-        return childlist;    
+        return fam.getChildrenList();    
         for (auto indi: indiList)
         {
              if (indi.getID() == fam.getHusID())
