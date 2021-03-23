@@ -381,6 +381,36 @@ std::vector<std::string> Repository::us09() {
 std::vector<std::string> Repository::us10() {
     // todo
     std::vector<std::string> result = {};
+    for (auto fam: famList)
+    {
+        std::string husBday;
+        std::string wifeBday;
+        std::string Marrday;
+        if (fam.getMarr() != "NA")
+        {
+            std::cout << "ERROR: FAMILY: US10: " + fam.getID() + ": There is no married date provided." << std::endl;
+        }
+        else
+        {
+            for (auto indi: indiList)
+            {
+                if (indi.getID() == fam.getHusID())
+                {
+                    husBday = indi.getBday();
+                }
+                else if (indi.getID() == fam.getWifeID())
+                {
+                    wifeBday = indi.getBday();
+                }      
+            }
+            Marrday = fam.getMarr();
+            if(Marrday>husBday)
+            {
+                
+            }
+        }
+        
+    }
     
     return result;
     
