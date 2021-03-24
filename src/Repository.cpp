@@ -5,7 +5,7 @@
 #include "Repository.h"
 #include "parser.h"
 #include <algorithm>
-
+#include <string.h>
 
 Repository::Repository() {
     std::string filepath = "src/GEDCOM.ged";
@@ -425,9 +425,9 @@ std::vector<std::string> Repository::us10() {
                 }      
             }
             Marrday = fam.getMarr();
-            std::vector<string> date1 = split(husBday, "-");
-            std::vector<string> date2 = split(wifeBday, "-");
-            std::vector<string> date3 = split(Marrday, "-");
+            std::vector<std::string> date1 = split(husBday, "-");
+            std::vector<std::string> date2 = split(wifeBday, "-");
+            std::vector<std::string> date3 = split(Marrday, "-");
             int year1 = std::stoi(date1[0]);
             int year2 = std::stoi(date2[0]);
             int year3 = std::stoi(date3[0]);
