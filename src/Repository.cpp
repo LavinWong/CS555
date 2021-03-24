@@ -428,6 +428,11 @@ std::vector<std::string> Repository::us10() {
             std::vector<std::string> date1 = split(husBday, "-");
             std::vector<std::string> date2 = split(wifeBday, "-");
             std::vector<std::string> date3 = split(Marrday, "-");
+	    for (auto it: date1)
+	    {
+		std::cout<<it<<std::endl; 
+	    }
+	   
             int year1 = std::stoi(date1[0]);
             int year2 = std::stoi(date2[0]);
             int year3 = std::stoi(date3[0]);
