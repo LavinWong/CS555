@@ -64,7 +64,7 @@ void Repository::setHusWifeName() {
 
 std::vector<string> split(const std::string& str, const std::string& delim) 
 {
-	vector<string> res;
+	std::vector<string> res;
 	if("" == str) return res;
 	char * strs = new char[str.length() + 1] ; 
 	strcpy(strs, str.c_str()); 
