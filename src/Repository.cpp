@@ -62,6 +62,27 @@ void Repository::setHusWifeName() {
     }
 }
 
+vector<string> split(const string& str, const string& delim) 
+{
+	vector<string> res;
+	if("" == str) return res;
+	char * strs = new char[str.length() + 1] ; 
+	strcpy(strs, str.c_str()); 
+ 
+	char * d = new char[delim.length() + 1];
+	strcpy(d, delim.c_str());
+ 
+	char *p = strtok(strs, d);
+	while(p) 
+    {
+		string s = p; 
+		res.push_back(s); 
+		p = strtok(NULL, d);
+	}
+ 
+	return res;
+}
+
 // add us01 to us06 here 
 
 std::vector<std::string> Repository::us01() {
@@ -404,9 +425,45 @@ std::vector<std::string> Repository::us10() {
                 }      
             }
             Marrday = fam.getMarr();
-            if(Marrday>husBday)
+            std::vector<string> date1 = split(husBday, "-");
+            std::vector<string> date2 = split(wifeBday, "-");
+            std::vector<string> date3 = split(Marrday, "-");
+            int year1 = std::stoi(date1[0]);
+            int year2 = std::stoi(date2[0]);
+            int year3 = std::stoi(date3[0]);
+            int month1 = std::stoi(date1[1]);
+            int month2 = std::stoi(date2[1]);
+            int month3 = std::stoi(date3[1]);
+            int day1 = std::stoi(date1[2]);
+            int day2 = std::stoi(date2[2]);
+            int day3 = std::stoi(date3[2]);
+            if((year3-year1)>14)
             {
-                
+                if(std::find(result.begin(), result.end(), fam.getHusID())==result.end())
+                {
+                    result.push_back(fam.getHusID());
+                }
+            }
+            else if(((year3-year1)=14 && month3>month1) || ((year3-year1)=14 && month3=month1 && day3>=day1))
+            {
+                if(std::find(result.begin(), result.end(), fam.getHusID())==result.end())
+                {
+                    result.push_back(fam.getHusID());
+                }
+            }
+            if((year2-year1)>14)
+            {
+                if(std::find(result.begin(), result.end(), fam.getWifeID())==result.end())
+                {
+                    result.push_back(fam.getWifeID());
+                }
+            }
+            else if(((year2-year1)=14 && month2>month1) || ((year2-year1)=14 && month2=month1 && day2>=day1))
+            {
+                if(std::find(result.begin(), result.end(), fam.getWifeID())==result.end())
+                {
+                    result.push_back(fam.getWifeID());
+                }
             }
         }
         
