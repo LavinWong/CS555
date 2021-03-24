@@ -392,10 +392,7 @@ std::vector<std::string> Repository::us09() {
                              // do nothing
                         }
                     }
-		    else
-		    {
-			 std::cout << "ERROR: FAMILY: US09: " + id + ": He/She is birth before his/her parents." << std::endl;
-		    }
+		   
                 }
             }
         }
