@@ -62,7 +62,7 @@ void Repository::setHusWifeName() {
     }
 }
 
-vector<string> split(const string& str, const string& delim) 
+std::vector<string> split(const string& str, const string& delim) 
 {
 	vector<string> res;
 	if("" == str) return res;
