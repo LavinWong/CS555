@@ -75,7 +75,7 @@ std::vector<std::string> split(const std::string& str, const std::string& delim)
 	char *p = strtok(strs, d);
 	while(p) 
        {
-		string s = p; 
+		std::string s = p; 
 		res.push_back(s); 
 		p = strtok(NULL, d);
 	}
@@ -444,7 +444,7 @@ std::vector<std::string> Repository::us10() {
                     result.push_back(fam.getHusID());
                 }
             }
-            else if(((year3-year1)==14 && month3>month1) || ((year3-year1)==14 && month3=month1 && day3>=day1))
+            else if(((year3-year1)==14 && month3>month1) || ((year3-year1)==14 && month3==month1 && day3>=day1))
             {
                 if(std::find(result.begin(), result.end(), fam.getHusID())==result.end())
                 {
@@ -458,7 +458,7 @@ std::vector<std::string> Repository::us10() {
                     result.push_back(fam.getWifeID());
                 }
             }
-            else if(((year2-year1)==14 && month2>month1) || ((year2-year1)==14 && month2=month1 && day2>=day1))
+            else if(((year2-year1)==14 && month2>month1) || ((year2-year1)==14 && month2==month1 && day2>=day1))
             {
                 if(std::find(result.begin(), result.end(), fam.getWifeID())==result.end())
                 {
