@@ -425,60 +425,62 @@ std::vector<std::string> Repository::us10() {
                 }      
             }
             Marrday = fam.getMarr();
-            std::vector<std::string> date1 = split(husBday, "-");
-            std::vector<std::string> date2 = split(wifeBday, "-");
-            std::vector<std::string> date3 = split(Marrday, "-");
-	    for (auto it: date1)
+	    if(husBday.size!=0 && wifeBday.size!=0)
 	    {
-		std::cout<<it<<std::endl; 
-	    }
-	    for (auto it: date2)
-	    {
-		std::cout<<it<<std::endl; 
-	    }
-            for (auto it: date3)
-	    {
-		std::cout<<it<<std::endl; 
-	    }
-            std::cout<<date1[0]<<std::endl; 
+            	std::vector<std::string> date1 = split(husBday, "-");
+            	std::vector<std::string> date2 = split(wifeBday, "-");
+            	std::vector<std::string> date3 = split(Marrday, "-");
+	    	for (auto it: date1)
+	    	{
+			std::cout<<it<<std::endl; 
+	    	}
+	    	for (auto it: date2)
+	    	{
+			std::cout<<it<<std::endl; 
+	    	}
+            	for (auto it: date3)
+	    	{
+			std::cout<<it<<std::endl; 
+	    	}
+            	std::cout<<date1[0]<<std::endl; 
 	   
-            int year1 = std::stoi(date1[0]);
-            int year2 = std::stoi(date2[0]);
-            int year3 = std::stoi(date3[0]);
-            int month1 = std::stoi(date1[1]);
-            int month2 = std::stoi(date2[1]);
-            int month3 = std::stoi(date3[1]);
-            int day1 = std::stoi(date1[2]);
-            int day2 = std::stoi(date2[2]);
-            int day3 = std::stoi(date3[2]);
-            if((year3-year1)>14)
-            {
-                if(std::find(result.begin(), result.end(), fam.getHusID())==result.end())
-                {
-                    result.push_back(fam.getHusID());
+            	int year1 = std::stoi(date1[0]);
+            	int year2 = std::stoi(date2[0]);
+            	int year3 = std::stoi(date3[0]);
+            	int month1 = std::stoi(date1[1]);
+            	int month2 = std::stoi(date2[1]);
+            	int month3 = std::stoi(date3[1]);
+            	int day1 = std::stoi(date1[2]);
+            	int day2 = std::stoi(date2[2]);
+            	int day3 = std::stoi(date3[2]);
+            	if((year3-year1)>14)
+            	{
+                	if(std::find(result.begin(), result.end(), fam.getHusID())==result.end())
+                	{
+                    	result.push_back(fam.getHusID());
+                	}
+            	}
+            	else if(((year3-year1)==14 && month3>month1) || ((year3-year1)==14 && month3==month1 && day3>=day1))
+		{
+                	if(std::find(result.begin(), result.end(), fam.getHusID())==result.end())
+                	{
+                    	result.push_back(fam.getHusID());
+                	}
                 }
-            }
-            else if(((year3-year1)==14 && month3>month1) || ((year3-year1)==14 && month3==month1 && day3>=day1))
-            {
-                if(std::find(result.begin(), result.end(), fam.getHusID())==result.end())
-                {
-                    result.push_back(fam.getHusID());
-                }
-            }
-            if((year2-year1)>14)
-            {
-                if(std::find(result.begin(), result.end(), fam.getWifeID())==result.end())
-                {
-                    result.push_back(fam.getWifeID());
-                }
-            }
-            else if(((year2-year1)==14 && month2>month1) || ((year2-year1)==14 && month2==month1 && day2>=day1))
-            {
-                if(std::find(result.begin(), result.end(), fam.getWifeID())==result.end())
-                {
-                    result.push_back(fam.getWifeID());
-                }
-            }
+            	if((year2-year1)>14)
+            	{
+                	if(std::find(result.begin(), result.end(), fam.getWifeID())==result.end())
+                	{
+                    		result.push_back(fam.getWifeID());
+                	}
+            	}
+            	else if(((year2-year1)==14 && month2>month1) || ((year2-year1)==14 && month2==month1 && day2>=day1))
+            	{
+                	if(std::find(result.begin(), result.end(), fam.getWifeID())==result.end())
+                	{
+                    		result.push_back(fam.getWifeID());
+                	}
+            	}
         }
         
     }
