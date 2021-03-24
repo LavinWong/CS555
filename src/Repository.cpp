@@ -425,7 +425,7 @@ std::vector<std::string> Repository::us10() {
                 }      
             }
             Marrday = fam.getMarr();
-	    if(husBday.size()!=0 && wifeBday.size()!=0)
+	    if(husBday!="NA" && wifeBday!="NA")
 	    {
             	std::vector<std::string> date1 = split(husBday, "-");
             	std::vector<std::string> date2 = split(wifeBday, "-");
