@@ -425,7 +425,7 @@ std::vector<std::string> Repository::us10() {
                 }      
             }
             Marrday = fam.getMarr();
-	    if(husBday.size!=0 && wifeBday.size!=0)
+	    if(husBday.size()!=0 && wifeBday.size()!=0)
 	    {
             	std::vector<std::string> date1 = split(husBday, "-");
             	std::vector<std::string> date2 = split(wifeBday, "-");
@@ -464,7 +464,7 @@ std::vector<std::string> Repository::us10() {
 		{
                 	if(std::find(result.begin(), result.end(), fam.getHusID())==result.end())
                 	{
-                    	result.push_back(fam.getHusID());
+                    		result.push_back(fam.getHusID());
                 	}
                 }
             	if((year2-year1)>14)
@@ -481,6 +481,7 @@ std::vector<std::string> Repository::us10() {
                     		result.push_back(fam.getWifeID());
                 	}
             	}
+	    }
         }
         
     }
