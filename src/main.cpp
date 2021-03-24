@@ -132,7 +132,7 @@ class Cppunit_tests: public Cppunit {
     
     void us10_test(){
         Repository repo;
-        std::vector<std::string> result = {"@I3@", "@I2@","@I4@","@I17@","@I11@","@I14@","@I23@"};
+        std::vector<std::string> result = {"@I1@", "@I2@"};
         std::vector<std::string> result2 = repo.us10();
         std::vector<std::string> result3 = result;
         std::cout<<"-----US10_test------"<<std::endl;
@@ -145,7 +145,7 @@ class Cppunit_tests: public Cppunit {
              std::cout<<str<<std::endl;
          }
          std::cout<<"-----US10_result_END------"<<std::endl;
-        CHECKT(repo.us10() != result);
+        CHECKT(repo.us10() == result);
     }
     
      void us12_test(){
