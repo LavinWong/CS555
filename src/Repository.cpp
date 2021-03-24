@@ -432,6 +432,15 @@ std::vector<std::string> Repository::us10() {
 	    {
 		std::cout<<it<<std::endl; 
 	    }
+	    for (auto it: date2)
+	    {
+		std::cout<<it<<std::endl; 
+	    }
+            for (auto it: date3)
+	    {
+		std::cout<<it<<std::endl; 
+	    }
+            std::cout<<date1[0]<<std::endl; 
 	   
             int year1 = std::stoi(date1[0]);
             int year2 = std::stoi(date2[0]);
