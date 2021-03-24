@@ -407,7 +407,7 @@ std::vector<std::string> Repository::us10() {
         std::string husBday;
         std::string wifeBday;
         std::string Marrday;
-        if (fam.getMarr() != "NA")
+        if (fam.getMarr() == "NA")
         {
             std::cout << "ERROR: FAMILY: US10: " + fam.getID() + ": There is no married date provided." << std::endl;
         }
