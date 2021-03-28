@@ -514,10 +514,12 @@ bool Repository::compareAge(std::string b1, std::string b2, std::string sex) {
 }
 
 std::vector<std::string> Repository::us12() {
+    std::vector<std::string> result = {};
     if (compareAge("1900-04-05", "2010-01-05", "F") == false)
         std::cout << "US12 error test" << std::endl;
     else    
         std::cout << "US12 success test" << std::endl;
+    return result;
     // std::vector<std::string> result = {};
     // for (auto fam: famList) {
     //     std::string momBirth = getBirthByID(fam.getWifeID());
