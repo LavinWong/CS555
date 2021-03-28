@@ -528,16 +528,31 @@ std::vector<std::string> Repository::us12() {
     std::vector<std::string> result = {};
     for (auto fam: famList) {
         if ((fam.getWifeID() == "NA") || (fam.getHusID() == "NA")) {
+            if (std::find(result.begin(), result.end(), "NA") == result.end()) {
+                result.push_back("NA");
+            } else {
+                // do nothing
+            }
             std::cout << "ERROR: FAMILY: US12: " + fam.getID() + ": The mother's or father's ID is not provided." << std::endl;
             continue;
         }
         std::string momBirth = getBirthByID(fam.getWifeID());
         if (momBirth == "NA") {
+            if (std::find(result.begin(), result.end(), "NA") == result.end()) {
+                result.push_back("NA");
+            } else {
+                // do nothing
+            }
             std::cout << "ERROR: FAMILY: US12: " + fam.getID() + ": The mother's birth is not provided." << std::endl;
             continue;
         }
         std::string faBirth = getBirthByID(fam.getHusID());
         if (faBirth == "NA") {
+            if (std::find(result.begin(), result.end(), "NA") == result.end()) {
+                result.push_back("NA");
+            } else {
+                // do nothing
+            }
             std::cout << "ERROR: FAMILY: US12: " + fam.getID() + ": The father's birth is not provided." << std::endl;
             continue;
         }
@@ -545,6 +560,11 @@ std::vector<std::string> Repository::us12() {
         for (auto child: childList) {
             std::string childBirth = getBirthByID(child);
             if (childBirth == "NA") {
+                if (std::find(result.begin(), result.end(), "NA") == result.end()) {
+                    result.push_back("NA");
+                } else {
+                    // do nothing
+                }
                 std::cout << "ERROR: FAMILY: US12: " + fam.getID() + ": The child's birth is not provided." << std::endl;
                 continue;
             }
