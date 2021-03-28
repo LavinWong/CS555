@@ -576,9 +576,6 @@ std::vector<std::string> Repository::us12() {
                 }
                 std::cout << "ERROR: FAMILY: US12: " + fam.getID() + ": The mother is more than 60 years older than this children: " + child << std::endl;
             }
-            else {
-                std::cout << "US12 Success" << std::endl;
-            }
             if (compareAge(childBirth, faBirth, "M") == false) {
                 if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
                     result.push_back(fam.getID());
@@ -586,9 +583,6 @@ std::vector<std::string> Repository::us12() {
                     // do nothing
                 }
                 std::cout << "ERROR: FAMILY: US12: " + fam.getID() + ": The father is more than 80 years older than this children: " + child << std::endl;
-            }
-            else {
-                std::cout << "US12 Success" << std::endl;
             }
         }
     }
