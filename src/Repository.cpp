@@ -528,10 +528,22 @@ std::vector<std::string> Repository::us12() {
     std::vector<std::string> result = {};
     for (auto fam: famList) {
         std::string momBirth = getBirthByID(fam.getWifeID());
+        if (momBirth == "NA") {
+            std::cout << "ERROR: FAMILY: US12: " + fam.getID() + ": The mother's birth is not provided." << std::endl;
+            continue;
+        }
         std::string faBirth = getBirthByID(fam.getHusID());
+        if (faBirth == "NA") {
+            std::cout << "ERROR: FAMILY: US12: " + fam.getID() + ": The father's birth is not provided." << std::endl;
+            continue;
+        }
         std::vector<std::string> childList = fam.getChildrenVector();
         for (auto child: childList) {
             std::string childBirth = getBirthByID(child);
+            if (childBirth == "NA") {
+                std::cout << "ERROR: FAMILY: US12: " + fam.getID() + ": The child's birth is not provided." << std::endl;
+                continue;
+            }
             if (compareAge(childBirth, momBirth, "F") == false) {
                 if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
                     result.push_back(fam.getID());
