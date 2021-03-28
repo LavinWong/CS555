@@ -25,6 +25,7 @@ public:
     std::string getIndividualName(std::string indi_id);
     void setHusWifeName();
     std::string getBirthByID(std::string ID);
+    bool compareAge(std::string b1, std::string b2, std::string sex);
 
     void print_table();
     std::vector<std::string> us01();

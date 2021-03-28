@@ -486,27 +486,69 @@ std::vector<std::string> Repository::us10() {
     return result;
     
 }
+
+bool Repository::compareAge(std::string b1, std::string b2, std::string sex) {
+    if (stoi(b2.substr(0, 4)) > stoi(b1.substr(0, 4))) {
+        return false;
+    }
+    if (sex == "F") {
+        if (((stoi(b1.substr(0, 4)) - stoi(b2.substr(0, 4))) >= 60) &&
+            (stoi(b2.substr(5, 2)) < stoi(b1.substr(5, 2))))
+            return false;
+        else if (((stoi(b1.substr(0, 4)) - stoi(b2.substr(0, 4))) == 60) &&
+            (stoi(b2.substr(5, 2)) > stoi(b1.substr(5, 2))))
+            return false;
+        else
+            return true;
+    }
+    else {
+        if (((stoi(b1.substr(0, 4)) - stoi(b2.substr(0, 4))) >= 80) &&
+            (stoi(b2.substr(5, 2)) < stoi(b1.substr(5, 2))))
+            return false;
+        else if (((stoi(b1.substr(0, 4)) - stoi(b2.substr(0, 4))) == 80) &&
+            (stoi(b2.substr(5, 2)) > stoi(b1.substr(5, 2))))
+            return false;
+        else   
+            return true;
+    }
+}
+
 std::vector<std::string> Repository::us12() {
+    if (compareAge("1900-04-05", "2010-01-05", "F") == false)
+        std::cout << "US12 error test" << std::endl;
+    else    
+        std::cout << "US12 success test" << std::endl;
     // std::vector<std::string> result = {};
     // for (auto fam: famList) {
-    //     for (auto indi: indiList) {
-    //         if (indi.getID() == fam.getWifeID()) {
-    //             std::string momBirth = indi.getBday(); 
-    //         }
-    //     }
-    //     for (auto indi: indiList) {
-    //         if (indi.getID() == fam.getHusID()) {
-    //             std::string faBirth = indi.getBday(); 
-    //         }
-    //     }
+    //     std::string momBirth = getBirthByID(fam.getWifeID());
+    //     std::string faBirth = getBirthByID(fam.getHusID());
     //     std::vector<std::string> childList = fam.getChildrenVector();
     //     for (auto child: childList) {
-            
+    //         std::string childBirth = getBirthByID(child);
+    //         if (compareAge(childBirth, momBirth, "F") == false) {
+    //             if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
+    //                 result.push_back(fam.getID());
+    //             } else {
+    //                 // do nothing
+    //             }
+    //             std::cout << "ERROR: FAMILY: US12: " + fam.getID() + ": The mother is more than 60 years older than this children: " + child << std::endl;
+    //         }
+    //         if (compareAge(childBirth, faBirth, "M") == false) {
+    //             if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
+    //                 result.push_back(fam.getID());
+    //             } else {
+    //                 // do nothing
+    //             }
+    //             std::cout << "ERROR: FAMILY: US12: " + fam.getID() + ": The father is more than 80 years older than this children: " + child << std::endl;
+    //         }
     //     }
+    // }
 }
+
 std::vector<std::string> Repository::us14() {
     // todo
 }
+
 std::vector<std::string> Repository::us21() {
     // todo
 }
