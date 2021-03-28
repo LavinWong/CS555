@@ -527,6 +527,10 @@ std::vector<std::string> Repository::us12() {
 
     std::vector<std::string> result = {};
     for (auto fam: famList) {
+        if ((fam.getWifeID() == "NA") || (fam.getHusID() == "NA")) {
+            std::cout << "ERROR: FAMILY: US12: " + fam.getID() + ": The mother's or father's ID is not provided." << std::endl;
+            continue;
+        }
         std::string momBirth = getBirthByID(fam.getWifeID());
         if (momBirth == "NA") {
             std::cout << "ERROR: FAMILY: US12: " + fam.getID() + ": The mother's birth is not provided." << std::endl;
