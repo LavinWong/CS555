@@ -24,6 +24,7 @@ public:
     ~Repository();
     std::string getIndividualName(std::string indi_id);
     void setHusWifeName();
+    std::string getBirthByID(std::string ID);
 
     void print_table();
     std::vector<std::string> us01();

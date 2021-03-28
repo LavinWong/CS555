@@ -68,7 +68,7 @@ std::vector<std::string> split(const std::string& str, const std::string& delim)
 	if("" == str) return res;
 	char * strs = new char[str.length() + 1] ; 
 	strcpy(strs, str.c_str()); 
- 
+    
 	char * d = new char[delim.length() + 1];
 	strcpy(d, delim.c_str());
  
@@ -81,6 +81,15 @@ std::vector<std::string> split(const std::string& str, const std::string& delim)
 	}
  
 	return res;
+}
+
+std::string Repository::getBirthByID(std::string ID) {
+    for (auto indi: indiList) {
+        if (indi.getID() == ID) {
+            std::string birth = indi.getBday();
+            return birth;
+        }
+    }
 }
 
 // add us01 to us06 here 
@@ -478,7 +487,22 @@ std::vector<std::string> Repository::us10() {
     
 }
 std::vector<std::string> Repository::us12() {
-    // todo
+    // std::vector<std::string> result = {};
+    // for (auto fam: famList) {
+    //     for (auto indi: indiList) {
+    //         if (indi.getID() == fam.getWifeID()) {
+    //             std::string momBirth = indi.getBday(); 
+    //         }
+    //     }
+    //     for (auto indi: indiList) {
+    //         if (indi.getID() == fam.getHusID()) {
+    //             std::string faBirth = indi.getBday(); 
+    //         }
+    //     }
+    //     std::vector<std::string> childList = fam.getChildrenVector();
+    //     for (auto child: childList) {
+            
+    //     }
 }
 std::vector<std::string> Repository::us14() {
     // todo
