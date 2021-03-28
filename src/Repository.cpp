@@ -514,41 +514,49 @@ bool Repository::compareAge(std::string b1, std::string b2, std::string sex) {
 }
 
 std::vector<std::string> Repository::us12() {
-    std::vector<std::string> result = {};
-    if (compareAge("2010-04-05", "2000-01-05", "F") == false)
-        std::cout << "US12 error test" << std::endl;
-    else    
-        std::cout << "US12 success test" << std::endl;
-    if (compareAge("2010-04-05", "1900-01-05", "F") == false)
-        std::cout << "US12 error test" << std::endl;
-    else    
-        std::cout << "US12 success test" << std::endl;
-    return result;
     // std::vector<std::string> result = {};
-    // for (auto fam: famList) {
-    //     std::string momBirth = getBirthByID(fam.getWifeID());
-    //     std::string faBirth = getBirthByID(fam.getHusID());
-    //     std::vector<std::string> childList = fam.getChildrenVector();
-    //     for (auto child: childList) {
-    //         std::string childBirth = getBirthByID(child);
-    //         if (compareAge(childBirth, momBirth, "F") == false) {
-    //             if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
-    //                 result.push_back(fam.getID());
-    //             } else {
-    //                 // do nothing
-    //             }
-    //             std::cout << "ERROR: FAMILY: US12: " + fam.getID() + ": The mother is more than 60 years older than this children: " + child << std::endl;
-    //         }
-    //         if (compareAge(childBirth, faBirth, "M") == false) {
-    //             if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
-    //                 result.push_back(fam.getID());
-    //             } else {
-    //                 // do nothing
-    //             }
-    //             std::cout << "ERROR: FAMILY: US12: " + fam.getID() + ": The father is more than 80 years older than this children: " + child << std::endl;
-    //         }
-    //     }
-    // }
+    // if (compareAge("2010-04-05", "2000-01-05", "F") == false)
+    //     std::cout << "US12 error test" << std::endl;
+    // else    
+    //     std::cout << "US12 success test" << std::endl;
+    // if (compareAge("2010-04-05", "1900-01-05", "F") == false)
+    //     std::cout << "US12 error test" << std::endl;
+    // else    
+    //     std::cout << "US12 success test" << std::endl;
+    // return result;
+
+    std::vector<std::string> result = {};
+    for (auto fam: famList) {
+        std::string momBirth = getBirthByID(fam.getWifeID());
+        std::string faBirth = getBirthByID(fam.getHusID());
+        std::vector<std::string> childList = fam.getChildrenVector();
+        for (auto child: childList) {
+            std::string childBirth = getBirthByID(child);
+            if (compareAge(childBirth, momBirth, "F") == false) {
+                if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
+                    result.push_back(fam.getID());
+                } else {
+                    // do nothing
+                }
+                std::cout << "ERROR: FAMILY: US12: " + fam.getID() + ": The mother is more than 60 years older than this children: " + child << std::endl;
+            }
+            else {
+                std::cout << "US12 Success" << std::endl;
+            }
+            if (compareAge(childBirth, faBirth, "M") == false) {
+                if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
+                    result.push_back(fam.getID());
+                } else {
+                    // do nothing
+                }
+                std::cout << "ERROR: FAMILY: US12: " + fam.getID() + ": The father is more than 80 years older than this children: " + child << std::endl;
+            }
+            else {
+                std::cout << "US12 Success" << std::endl;
+            }
+        }
+    }
+    return result;
 }
 
 std::vector<std::string> Repository::us14() {
