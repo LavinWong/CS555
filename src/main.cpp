@@ -155,7 +155,11 @@ class Cppunit_tests: public Cppunit {
         CHECKT(result1 == result);
     }
     
-     void us14_test(){
+    void us14_test(){
+        Repository repo;
+        std::vector<std::string> result = {"NA"};
+        std::vector<std::string> result1 = repo.us14();
+        CHECKT(result1 == result);
     }
     
      void us21_test(){
