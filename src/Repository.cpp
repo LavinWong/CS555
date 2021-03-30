@@ -611,7 +611,7 @@ std::vector<std::string> Repository::us14() {
             childs.push_back(childBirth);
             c++;
         }
-        int tempArray[c] = {0};
+        int tempArray[c];
         c = 0;
         for (auto count: childs) {
             if (count == childBirth) {
