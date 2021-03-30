@@ -156,10 +156,10 @@ class Cppunit_tests: public Cppunit {
     }
     
     void us14_test(){
-        Repository repo;
-        std::vector<std::string> result = {"NA"};
-        std::vector<std::string> result1 = repo.us14();
-        CHECKT(result1 == result);
+        // Repository repo;
+        // std::vector<std::string> result = {"NA"};
+        // std::vector<std::string> result1 = repo.us14();
+        // CHECKT(result1 == result);
     }
     
      void us21_test(){

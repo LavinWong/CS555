@@ -590,50 +590,50 @@ std::vector<std::string> Repository::us12() {
 }
 
 std::vector<std::string> Repository::us14() {
-    std::vector<std::string> result = {};
-    std::vector<std::string> childs = {};
-    std::string childBirth;
-    int c = 0;
-    int max = 0;
-    for (auto fam: famList) {
-        std::vector<std::string> childList = fam.getChildrenVector();
-        if (childList.size() == 0) {
-            if (std::find(result.begin(), result.end(), "NA") == result.end()) {
-                result.push_back("NA");
-            } else {
-                // do nothing
-            }
-            std::cout << "ERROR: FAMILY: US14: " + fam.getID() + ": The child's information is not provided." << std::endl;
-            continue;
-        }
-        for (auto child: childList) {
-            childBirth = getBirthByID(child);
-            childs.push_back(childBirth);
-            c++;
-        }
-        int tempArray[c];
-        c = 0;
-        for (auto count: childs) {
-            if (count == childBirth) {
-                tempArray[c]++;
-                if (tempArray[c] > max)
-                    max = tempArray[c];
-            }
-            if (max > 6) {
-                if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
-                    result.push_back(fam.getID());
-                } else {
-                    // do nothing
-                }
-                std::cout << "ERROR: FAMILY: US14: " + fam.getID() + ": There are more than five siblings born at the same time." << std::endl;
-                return result;
-            }
-            c++;
-        }
-        c = 0;
-        max = 0;
-    }
-    return result;
+    // std::vector<std::string> result = {};
+    // std::vector<std::string> childs = {};
+    // std::string childBirth;
+    // int c = 0;
+    // int max = 0;
+    // for (auto fam: famList) {
+    //     std::vector<std::string> childList = fam.getChildrenVector();
+    //     if (childList.size() == 0) {
+    //         if (std::find(result.begin(), result.end(), "NA") == result.end()) {
+    //             result.push_back("NA");
+    //         } else {
+    //             // do nothing
+    //         }
+    //         std::cout << "ERROR: FAMILY: US14: " + fam.getID() + ": The child's information is not provided." << std::endl;
+    //         continue;
+    //     }
+    //     for (auto child: childList) {
+    //         childBirth = getBirthByID(child);
+    //         childs.push_back(childBirth);
+    //         c++;
+    //     }
+    //     int tempArray[c];
+    //     c = 0;
+    //     for (auto count: childs) {
+    //         if (count == childBirth) {
+    //             tempArray[c]++;
+    //             if (tempArray[c] > max)
+    //                 max = tempArray[c];
+    //         }
+    //         if (max > 6) {
+    //             if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
+    //                 result.push_back(fam.getID());
+    //             } else {
+    //                 // do nothing
+    //             }
+    //             std::cout << "ERROR: FAMILY: US14: " + fam.getID() + ": There are more than five siblings born at the same time." << std::endl;
+    //             return result;
+    //         }
+    //         c++;
+    //     }
+    //     c = 0;
+    //     max = 0;
+    // }
+    // return result;
 }
 
 std::vector<std::string> Repository::us21() {
