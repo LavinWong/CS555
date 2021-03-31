@@ -22,12 +22,22 @@ class Cppunit_tests: public Cppunit {
         us04_test();
         us05_test();
         us06_test();
+        
+        //sprint2
         us07_test();
         us09_test();
         us10_test();
         us12_test();
         us14_test();
         us21_test();
+
+        //sprint3
+        us22_test();
+        us23_test();
+        us27_test();
+        us29_test();
+        us30_test();
+        us33_test();
 
     }
 
@@ -174,12 +184,36 @@ class Cppunit_tests: public Cppunit {
         Repository repo;
         std::vector<std::string> result = {"@F7@", "@F13@"};
         std::vector<std::string> result2 = repo.us21();
-        std::cout<<"-----US21_test------"<<std::endl;
-        for (auto str: result2){
-            std::cout<<str<<std::endl;
-        }
-        std::cout<<"-----US21_test_END------"<<std::endl;
+        // std::cout<<"-----US21_test------"<<std::endl;
+        // for (auto str: result2){
+        //     std::cout<<str<<std::endl;
+        // }
+        // std::cout<<"-----US21_test_END------"<<std::endl;
         CHECKT(repo.us21() == result);
+    }
+
+    void us22_test(){
+        //todo
+    }
+
+    void us23_test(){
+        //todo
+    }
+    
+    void us27_test(){
+        //todo
+    }
+    
+    void us29_test(){
+        //todo
+    }
+    
+    void us30_test(){
+        //todo
+    }
+    
+    void us33_test(){
+        //todo
     }
 
     void print_table_test() {

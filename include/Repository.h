@@ -35,12 +35,22 @@ public:
     std::vector<std::string> us04();
     std::vector<std::string> us05();
     std::vector<std::string> us06();
+    
+    //sprint2
     std::vector<std::string> us07();
     std::vector<std::string> us09();
     std::vector<std::string> us10();
     std::vector<std::string> us12();
     std::vector<std::string> us14();
     std::vector<std::string> us21();
+
+    //sprint3
+    std::vector<std::string> us22();
+    std::vector<std::string> us23();
+    std::vector<std::string> us27();
+    std::vector<std::string> us29();
+    std::vector<std::string> us30();
+    std::vector<std::string> us33();
     
 
 };
