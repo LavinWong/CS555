@@ -382,6 +382,18 @@ std::vector<std::string> Repository::us06() {
 std::vector<std::string> Repository::us07() {
     // todo
     std::vector<std::string> result = {};
+    for (auto indi: indiList){
+        if (indi.getAge()!="NA"){
+            if (indi.getAge()>"150"){
+                if (std::find(result.begin(), result.end(), indi.getID())==result.end()){
+                    result.push_back(indi.getID());
+                }else{
+                    // do nothing
+                }
+                std::cout<< "ERROR: INDIVIDUAL: US07: "+indi.getID()+"'s Age "+indi.getAge()+" is too old, over 150 yrs old! "<<std::endl;
+            }
+        }
+    }
     return result;
 }
 std::vector<std::string> Repository::us09() {
