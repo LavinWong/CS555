@@ -112,11 +112,11 @@ class Cppunit_tests: public Cppunit {
         Repository repo;
         std::vector<std::string> result = {"@I15@"};
         std::vector<std::string> result2 = repo.us07();
-        std::cout<<"-----US07_test------"<<std::endl;
-        for (auto str: result2){
-            std::cout<<str<<std::endl;
-        }
-        std::cout<<"-----US07_test_END------"<<std::endl;
+        // std::cout<<"-----US07_test------"<<std::endl;
+        // for (auto str: result2){
+        //     std::cout<<str<<std::endl;
+        // }
+        // std::cout<<"-----US07_test_END------"<<std::endl;
         CHECKT(repo.us07() == result);
     }
     
@@ -174,11 +174,11 @@ class Cppunit_tests: public Cppunit {
         Repository repo;
         std::vector<std::string> result = {"@F7@", "@F13@"};
         std::vector<std::string> result2 = repo.us21();
-        // std::cout<<"-----US01_test------"<<std::endl;
-        // for (auto str: result2){
-        //     std::cout<<str<<std::endl;
-        // }
-        // std::cout<<"-----US01_test_END------"<<std::endl;
+        std::cout<<"-----US21_test------"<<std::endl;
+        for (auto str: result2){
+            std::cout<<str<<std::endl;
+        }
+        std::cout<<"-----US21_test_END------"<<std::endl;
         CHECKT(repo.us21() == result);
     }
 

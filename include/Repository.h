@@ -23,6 +23,7 @@ public:
     Repository();
     ~Repository();
     std::string getIndividualName(std::string indi_id);
+    std::string getIndividualSex(std::string indi_id);
     void setHusWifeName();
     std::string getBirthByID(std::string ID);
     bool compareAge(std::string b1, std::string b2, std::string sex);

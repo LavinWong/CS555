@@ -44,6 +44,15 @@ std::string Repository::getIndividualName(std::string indi_id) {
     return "NA";
 }
 
+std::string Repository::getIndividualSex(std::string indi_id) {
+    for (auto indi: indiList){
+        if (indi.getID() == indi_id){
+            return indi.getGender();
+        }
+    }
+    return "NA";
+}
+
 void Repository::setHusWifeName() {
     int size = famList.size();
     for (int index = 0; index<size; index++){
@@ -655,6 +664,26 @@ std::vector<std::string> Repository::us14() {
 std::vector<std::string> Repository::us21() {
     // todo
     std::vector<std::string> result = {};
+    for (auto fam: famList){
+        if (fam.getHusID()!="NA" && fam.getWifeID()!="NA"){
+            if (getIndividualSex(fam.getHusID())!="M"){
+                if(std::find(result.begin(), result.end(), fam.getID())==result.end()){
+                    result.push_back(fam.getID());
+                }else {
+                    // do nothing
+                }
+                std::cout<< "ERROR: FAMILY: US21: "+fam.getID()+": Husband "+fam.getHusID()+" is not Male! "<<std::endl;
+            }
+            if (getIndividualSex(fam.getWifeID())!="F"){
+                if(std::find(result.begin(), result.end(), fam.getID())==result.end()){
+                    result.push_back(fam.getID());
+                }else {
+                    // do nothing
+                }
+                std::cout<< "ERROR: FAMILY: US21: "+fam.getID()+": Wife "+fam.getWifeID()+" is not Female! "<<std::endl;
+            }
+        }
+    }
     return result;
 }
 
