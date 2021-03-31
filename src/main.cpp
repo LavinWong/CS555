@@ -160,6 +160,11 @@ class Cppunit_tests: public Cppunit {
         Repository repo;
         std::vector<std::string> result = {"NA"};
         std::vector<std::string> result1 = repo.us12();
+        std::cout<<"-----US12_test------"<<std::endl;
+        for (auto str: result1){
+            std::cout<<str<<std::endl;
+         }
+         std::cout<<"-----US12_test_END------"<<std::endl;
         CHECKT(result1 == result);
     }
     
