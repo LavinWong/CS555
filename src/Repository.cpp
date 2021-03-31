@@ -384,7 +384,7 @@ std::vector<std::string> Repository::us07() {
     std::vector<std::string> result = {};
     for (auto indi: indiList){
         if (indi.getAge()!="NA"){
-            if (indi.getAge()>"150"){
+            if (indi.getAgeInt()>150){
                 if (std::find(result.begin(), result.end(), indi.getID())==result.end()){
                     result.push_back(indi.getID());
                 }else{

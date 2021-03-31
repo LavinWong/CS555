@@ -47,6 +47,7 @@ public:
     std::string getFamsList();
 
     std::string getAge();
+    int getAgeInt();
 };
 
 

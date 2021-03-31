@@ -124,3 +124,7 @@ std::string Individual2::getFamcList(){
 std::string Individual2::getFamsList(){
     return fams;
 }
+
+int Individual2::getAgeInt(){
+    return age;
+}

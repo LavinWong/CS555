@@ -110,7 +110,7 @@ class Cppunit_tests: public Cppunit {
     void us07_test(){
         // add test case for us07
         Repository repo;
-        std::vector<std::string> result = {"@I15@", "@I16@"};
+        std::vector<std::string> result = {"@I15@"};
         std::vector<std::string> result2 = repo.us07();
         std::cout<<"-----US07_test------"<<std::endl;
         for (auto str: result2){
