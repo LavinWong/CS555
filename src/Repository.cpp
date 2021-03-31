@@ -689,10 +689,12 @@ std::vector<std::string> Repository::us21() {
 
 std::vector<std::string> Repository::us22(){
     // todo
+    std::vector<std::string> result = {};
 }
 
 std::vector<std::string> Repository::us23(){
     // todo
+    std::vector<std::string> result = {};
 }
 
 std::vector<std::string> Repository::us27(){
