@@ -537,17 +537,6 @@ std::vector<std::string> Repository::us10() {
 }
 
 std::vector<std::string> Repository::us12() {
-    // std::vector<std::string> result = {};
-    // if (compareAge("2010-04-05", "2000-01-05", "F") == false)
-    //     std::cout << "US12 error test" << std::endl;
-    // else    
-    //     std::cout << "US12 success test" << std::endl;
-    // if (compareAge("2010-04-05", "1900-01-05", "F") == false)
-    //     std::cout << "US12 error test" << std::endl;
-    // else    
-    //     std::cout << "US12 success test" << std::endl;
-    // return result;
-
     std::vector<std::string> result = {};
     for (auto fam: famList) {
         if ((fam.getWifeID() == "NA") || (fam.getHusID() == "NA")) {
