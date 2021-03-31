@@ -29,8 +29,6 @@ class Cppunit_tests: public Cppunit {
         us14_test();
         us21_test();
 
-        // adding another unit test case
-        another_unit_test();
     }
 
     void us01_test(){
@@ -110,6 +108,16 @@ class Cppunit_tests: public Cppunit {
     }
     
     void us07_test(){
+        // add test case for us07
+        Repository repo;
+        std::vector<std::string> result = {"@I15@", "@I16@"};
+        std::vector<std::string> result2 = repo.us07();
+        // std::cout<<"-----US01_test------"<<std::endl;
+        // for (auto str: result2){
+        //     std::cout<<str<<std::endl;
+        // }
+        // std::cout<<"-----US01_test_END------"<<std::endl;
+        CHECKT(repo.us07() == result);
     }
     
     void us09_test(){
@@ -117,16 +125,16 @@ class Cppunit_tests: public Cppunit {
         std::vector<std::string> result = {"@I3@", "@I2@","@I4@","@I17@","@I11@","@I14@","@I23@"};
         std::vector<std::string> result2 = repo.us09();
         std::vector<std::string> result3 = result;
-        std::cout<<"-----US09_test------"<<std::endl;
-        for (auto str: result2){
-            std::cout<<str<<std::endl;
-         }
-         std::cout<<"-----US09_test_END------"<<std::endl;
-         std::cout<<"-----US09_result------"<<std::endl;
-         for (auto str: result3){
-             std::cout<<str<<std::endl;
-         }
-         std::cout<<"-----US09_result_END------"<<std::endl;
+        // std::cout<<"-----US09_test------"<<std::endl;
+        // for (auto str: result2){
+        //     std::cout<<str<<std::endl;
+        //  }
+        //  std::cout<<"-----US09_test_END------"<<std::endl;
+        //  std::cout<<"-----US09_result------"<<std::endl;
+        //  for (auto str: result3){
+        //      std::cout<<str<<std::endl;
+        //  }
+        //  std::cout<<"-----US09_result_END------"<<std::endl;
         CHECKT(repo.us09() == result);
     }
     
@@ -135,16 +143,16 @@ class Cppunit_tests: public Cppunit {
         std::vector<std::string> result = {"@I1@", "@I2@"};
         std::vector<std::string> result2 = repo.us10();
         std::vector<std::string> result3 = result;
-        std::cout<<"-----US10_test------"<<std::endl;
-        for (auto str: result2){
-            std::cout<<str<<std::endl;
-         }
-         std::cout<<"-----US10_test_END------"<<std::endl;
-         std::cout<<"-----US10_result------"<<std::endl;
-         for (auto str: result3){
-             std::cout<<str<<std::endl;
-         }
-         std::cout<<"-----US10_result_END------"<<std::endl;
+        // std::cout<<"-----US10_test------"<<std::endl;
+        // for (auto str: result2){
+        //     std::cout<<str<<std::endl;
+        //  }
+        //  std::cout<<"-----US10_test_END------"<<std::endl;
+        //  std::cout<<"-----US10_result------"<<std::endl;
+        //  for (auto str: result3){
+        //      std::cout<<str<<std::endl;
+        //  }
+        //  std::cout<<"-----US10_result_END------"<<std::endl;
         CHECKT(repo.us10() == result);
     }
     
@@ -163,11 +171,15 @@ class Cppunit_tests: public Cppunit {
     }
     
      void us21_test(){
-    }
-
-    void another_unit_test() {
-        // example unit test case :D (showcase needed)
-        CHECK(2,2);
+        Repository repo;
+        std::vector<std::string> result = {"@F7@", "@F13@"};
+        std::vector<std::string> result2 = repo.us21();
+        // std::cout<<"-----US01_test------"<<std::endl;
+        // for (auto str: result2){
+        //     std::cout<<str<<std::endl;
+        // }
+        // std::cout<<"-----US01_test_END------"<<std::endl;
+        CHECKT(repo.us21() == result);
     }
 
     void print_table_test() {

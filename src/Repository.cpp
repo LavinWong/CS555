@@ -92,6 +92,32 @@ std::string Repository::getBirthByID(std::string ID) {
     }
 }
 
+bool Repository::compareAge(std::string b1, std::string b2, std::string sex) {
+    if (stoi(b2.substr(0, 4)) > stoi(b1.substr(0, 4))) {
+        return false;
+    }
+    if (sex == "F") {
+        if (((stoi(b1.substr(0, 4)) - stoi(b2.substr(0, 4))) >= 60) &&
+            (stoi(b2.substr(5, 2)) < stoi(b1.substr(5, 2))))
+            return false;
+        else if (((stoi(b1.substr(0, 4)) - stoi(b2.substr(0, 4))) == 60) &&
+            (stoi(b2.substr(5, 2)) > stoi(b1.substr(5, 2))))
+            return false;
+        else
+            return true;
+    }
+    else {
+        if (((stoi(b1.substr(0, 4)) - stoi(b2.substr(0, 4))) >= 80) &&
+            (stoi(b2.substr(5, 2)) < stoi(b1.substr(5, 2))))
+            return false;
+        else if (((stoi(b1.substr(0, 4)) - stoi(b2.substr(0, 4))) == 80) &&
+            (stoi(b2.substr(5, 2)) > stoi(b1.substr(5, 2))))
+            return false;
+        else   
+            return true;
+    }
+}
+
 // add us01 to us06 here 
 
 std::vector<std::string> Repository::us01() {
@@ -355,6 +381,8 @@ std::vector<std::string> Repository::us06() {
 }
 std::vector<std::string> Repository::us07() {
     // todo
+    std::vector<std::string> result = {};
+    return result;
 }
 std::vector<std::string> Repository::us09() {
     // todo
@@ -487,32 +515,6 @@ std::vector<std::string> Repository::us10() {
     
 }
 
-bool Repository::compareAge(std::string b1, std::string b2, std::string sex) {
-    if (stoi(b2.substr(0, 4)) > stoi(b1.substr(0, 4))) {
-        return false;
-    }
-    if (sex == "F") {
-        if (((stoi(b1.substr(0, 4)) - stoi(b2.substr(0, 4))) >= 60) &&
-            (stoi(b2.substr(5, 2)) < stoi(b1.substr(5, 2))))
-            return false;
-        else if (((stoi(b1.substr(0, 4)) - stoi(b2.substr(0, 4))) == 60) &&
-            (stoi(b2.substr(5, 2)) > stoi(b1.substr(5, 2))))
-            return false;
-        else
-            return true;
-    }
-    else {
-        if (((stoi(b1.substr(0, 4)) - stoi(b2.substr(0, 4))) >= 80) &&
-            (stoi(b2.substr(5, 2)) < stoi(b1.substr(5, 2))))
-            return false;
-        else if (((stoi(b1.substr(0, 4)) - stoi(b2.substr(0, 4))) == 80) &&
-            (stoi(b2.substr(5, 2)) > stoi(b1.substr(5, 2))))
-            return false;
-        else   
-            return true;
-    }
-}
-
 std::vector<std::string> Repository::us12() {
     // std::vector<std::string> result = {};
     // if (compareAge("2010-04-05", "2000-01-05", "F") == false)
@@ -640,5 +642,7 @@ std::vector<std::string> Repository::us14() {
 
 std::vector<std::string> Repository::us21() {
     // todo
+    std::vector<std::string> result = {};
+    return result;
 }
 
