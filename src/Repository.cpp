@@ -733,6 +733,40 @@ std::vector<std::string> Repository::us22(){
 std::vector<std::string> Repository::us23(){
     // todo
     std::vector<std::string> result = {};
+    for (auto indi: indiList)
+    {
+	std::string p_name;
+	std::string p_birth;
+	p_name = indi.getName();
+	p_birth = indi.getBday();
+	int i = 0;
+	for (auto indi: indiList)
+    	{
+	    if(indi.getName() != "NA" &&  indi.getBday() != "NA")
+	    {
+		if(p_name == indi.getName() && p_birth == indi.getBday())
+		{
+		    i++;
+		}
+	    }
+	} 
+	if(i==1)
+	{
+	    if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+	    {
+                result.push_back(indi.getID());
+	    }
+	}
+	else if(p_name == "NA" ||  p_birth == "NA")
+	{
+	     std::cout<< "ERROR: FAMILY: US23: "+indi.getID()+" is not have name or birthday! "<<std::endl;
+	}
+	else
+	{
+	    std::cout<< "ERROR: FAMILY: US23: "+indi.getID()+" is not have unique name and birthday! "<<std::endl;
+	}
+    }
+    return result;
 }
 
 std::vector<std::string> Repository::us27(){
