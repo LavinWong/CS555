@@ -679,6 +679,54 @@ std::vector<std::string> Repository::us21() {
 std::vector<std::string> Repository::us22(){
     // todo
     std::vector<std::string> result = {};
+    for (auto fam: famList)
+    {
+    	std::string famid;
+	famid = fam.getID();
+	int i = 0;
+	for (auto fam: famList)
+	{
+	    if(famid == fam.getID())
+	    {
+	        i++;
+	    }
+	}
+	if(i==1)
+	{
+	    if(std::find(result.begin(), result.end(), fam.getID())==result.end())
+	    {
+                result.push_back(fam.getID());
+	    }
+	}
+	else
+	{
+	    std::cout<< "ERROR: FAMILY: US22: "+fam.getID()+" is not unique! "<<std::endl;
+	}
+    }
+    for (auto indi: indiList)
+    {
+    	std::string famid;
+	indiId = indi.getID();
+	int i = 0;
+	for (auto fam: famList)
+	{
+	    if(indiId == indi.getID())
+	    {
+	        i++;
+	    }
+	}
+	if(i==1)
+	{
+	    if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+	    {
+                result.push_back(indi.getID());
+	    }
+	}
+	else
+	{
+	    std::cout<< "ERROR: FAMILY: US22: "+indi.getID()+" is not unique! "<<std::endl;
+	}
+    }
 }
 
 std::vector<std::string> Repository::us23(){
