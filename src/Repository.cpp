@@ -727,6 +727,7 @@ std::vector<std::string> Repository::us22(){
 	    std::cout<< "ERROR: FAMILY: US22: "+indi.getID()+" is not unique! "<<std::endl;
 	}
     }
+    return result;
 }
 
 std::vector<std::string> Repository::us23(){
