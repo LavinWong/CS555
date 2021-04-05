@@ -708,7 +708,7 @@ std::vector<std::string> Repository::us22(){
     	std::string indiId;
 	indiId = indi.getID();
 	int i = 0;
-	for (auto fam: famList)
+	for (auto indi: indiList)
 	{
 	    if(indiId == indi.getID())
 	    {
