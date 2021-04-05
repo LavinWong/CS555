@@ -705,7 +705,7 @@ std::vector<std::string> Repository::us22(){
     }
     for (auto indi: indiList)
     {
-    	std::string famid;
+    	std::string indiId;
 	indiId = indi.getID();
 	int i = 0;
 	for (auto fam: famList)
