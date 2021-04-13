@@ -777,8 +777,41 @@ std::vector<std::string> Repository::us29(){
     // todo
 }
 
-std::vector<std::string> Repository::us30(){
-    // todo
+std::vector<std::string> Repository::us30() {
+    std::vector<std::string> result = {};
+    std::vector<std::string> peopleList = {};
+    for (auto fam: famList) {
+        std::string husb = fam.getHusName();
+        std::string wife = fam.getWifeName();
+        if ((husb != "NA") && (wife != "NA")) {
+            if (fam.getDiv() == "NA") {
+                peopleList.push_back(husb);
+                peopleList.push_back(wife);
+            }
+            else {
+                if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
+                    result.push_back(fam.getID());
+                } 
+                else {
+                    // do nothing
+                }
+                std::cout << "ERROR: FAMILY: US30: " + fam.getID() + ": The family has divorced people." << std::endl;
+            }
+        }
+        else {
+            if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
+                    result.push_back(fam.getID());
+            } 
+            else {
+                // do nothing
+            }
+            std::cout << "ERROR: FAMILY: US30: " + fam.getID() + ": The family has no husband or wife." << std::endl;
+        }
+    }
+    for (auto people: peopleList) {
+        std::cout << people + " ";
+    }
+    std::cout << std::endl;
 }
 
 std::vector<std::string> Repository::us33(){
