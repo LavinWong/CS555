@@ -808,8 +808,13 @@ std::vector<std::string> Repository::us30() {
             std::cout << "ERROR: FAMILY: US30: " + fam.getID() + ": The family has no husband or wife." << std::endl;
         }
     }
+    std::cout << "Married People:" << std::endl;
+    int c = 0;
     for (auto people: peopleList) {
-        std::cout << people + " ";
+        if (c != 0)
+            std::cout << ", ";
+        std::cout << people;
+        c = 1;
     }
     std::cout << std::endl;
     return result;
