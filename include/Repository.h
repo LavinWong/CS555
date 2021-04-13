@@ -52,6 +52,14 @@ public:
     std::vector<std::string> us30();
     std::vector<std::string> us33();
     
+    //sprint4
+    std::vector<std::string> us35();
+    std::vector<std::string> us36();
+    std::vector<std::string> us38();
+    std::vector<std::string> us39();
+    std::vector<std::string> us40();
+    std::vector<std::string> us42();
+    
 
 };
 
