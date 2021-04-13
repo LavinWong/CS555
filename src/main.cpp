@@ -39,6 +39,14 @@ class Cppunit_tests: public Cppunit {
         us30_test();
         us33_test();
 
+        //sprint4
+        us35_test();
+        us36_test();
+        us38_test();
+        us39_test();
+        us40_test();
+        us42_test();
+
     }
 
     void us01_test(){
@@ -244,6 +252,31 @@ class Cppunit_tests: public Cppunit {
     void us33_test(){
         //todo
     }
+    
+    void us35_test(){
+        //todo
+    }
+    
+    void us36_test(){
+        //todo
+    }
+    
+    void us38_test(){
+        //todo
+    }
+    
+    void us39_test(){
+        //todo
+    }
+    
+    void us40_test(){
+        //todo
+    }
+    
+    void us42_test(){
+        //todo
+    }
+    
 
     void print_table_test() {
         Repository repo;
