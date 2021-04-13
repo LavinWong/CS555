@@ -812,6 +812,7 @@ std::vector<std::string> Repository::us30() {
         std::cout << people + " ";
     }
     std::cout << std::endl;
+    return result;
 }
 
 std::vector<std::string> Repository::us33(){
