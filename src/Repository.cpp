@@ -785,3 +785,26 @@ std::vector<std::string> Repository::us33(){
     // todo
 }
 
+std::vector<std::string> Repository::us35(){
+    // todo
+}
+
+std::vector<std::string> Repository::us36(){
+    // todo
+}
+
+std::vector<std::string> Repository::us38(){
+    // todo
+}
+
+std::vector<std::string> Repository::us39(){
+    // todo
+}
+std::vector<std::string> Repository::us40(){
+    // todo
+}
+
+std::vector<std::string> Repository::us42(){
+    // todo
+}
+
