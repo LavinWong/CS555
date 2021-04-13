@@ -247,7 +247,7 @@ class Cppunit_tests: public Cppunit {
     
     void us30_test() {
         Repository repo;
-        std::vector<std::string> result = {"@F2", "@F3", "@F5"};
+        std::vector<std::string> result = {"@F2@", "@F3@", "@F5@"};
         std::vector<std::string> result1 = repo.us30();
         CHECKT(result1 == result);
     }
