@@ -855,6 +855,10 @@ std::vector<std::string> Repository::us33() {
                         for (auto indi: indiList) {
                             if (indi.getID() == childs) {
                                 std::string birth = indi.getBday();
+                                if (birth == "NA") {
+                                    std::cout << "ERROR: FAMILY: US33: " + indi.getID() + ": The birth information is not provided." << std::endl;
+                                    continue;
+                                }
                                 int ages = stoi(out2.substr(0, 4)) - stoi(birth.substr(0, 4));
                                 if (stoi(out2.substr(5, 2)) < stoi(birth.substr(5, 2)))
                                     ages = ages - 1;
@@ -893,7 +897,7 @@ std::vector<std::string> Repository::us33() {
         c = 1;
     }
     std::cout << std::endl;
-    
+
     return result;
 }
 
