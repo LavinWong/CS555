@@ -817,11 +817,60 @@ std::vector<std::string> Repository::us30() {
         c = 1;
     }
     std::cout << std::endl;
+
+    std::time_t now;
+    time(&now);
+    char output[20];
+    struct tm* timeinfo;
+    timeinfo = localtime(&now);
+    strftime(output,20,"%F",timeinfo);
+    std::string out2 = output;
+    std::cout << out2 << std::endl;
+
     return result;
 }
 
 std::vector<std::string> Repository::us33(){
-    // todo
+    // std::vector<std::string> result = {};
+    // std::vector<std::string> peopleList = {};
+    // for (auto fam: famList) {
+    //     std::string husb = fam.getHusName();
+    //     std::string wife = fam.getWifeName();
+    //     if ((husb != "NA") && (wife != "NA")) {
+    //         if (fam.getDiv() == "NA") {
+    //             peopleList.push_back(husb);
+    //             peopleList.push_back(wife);
+    //         }
+    //         else {
+    //             if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
+    //                 result.push_back(fam.getID());
+    //             } 
+    //             else {
+    //                 // do nothing
+    //             }
+    //             std::cout << "ERROR: FAMILY: US30: " + fam.getID() + ": The family has divorced people." << std::endl;
+    //         }
+    //     }
+    //     else {
+    //         if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
+    //                 result.push_back(fam.getID());
+    //         } 
+    //         else {
+    //             // do nothing
+    //         }
+    //         std::cout << "ERROR: FAMILY: US30: " + fam.getID() + ": The family has no husband or wife." << std::endl;
+    //     }
+    // }
+    // std::cout << "Married People:" << std::endl;
+    // int c = 0;
+    // for (auto people: peopleList) {
+    //     if (c != 0)
+    //         std::cout << ", ";
+    //     std::cout << people;
+    //     c = 1;
+    // }
+    // std::cout << std::endl;
+    // return result;
 }
 
 std::vector<std::string> Repository::us35(){
