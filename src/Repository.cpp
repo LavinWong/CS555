@@ -864,6 +864,8 @@ std::vector<std::string> Repository::us33() {
                                     ages = ages - 1;
                                 if (ages < 18) {
                                     peopleList.push_back(childs);
+                                }
+                                else {
                                     if (std::find(result.begin(), result.end(), "NA") == result.end()) {
                                         result.push_back("NA");
                                     } 
