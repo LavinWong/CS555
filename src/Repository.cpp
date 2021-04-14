@@ -791,7 +791,7 @@ std::vector<std::string> Repository::us29(){
         if (indi.getDday()!="NA"){
             if(std::find(result.begin(), result.end(), indi.getID())==result.end()){
                 result.push_back(indi.getID());
-                std::cout<< "LIST: INDIVIDUAL: US29: "+indi.getID()+": Age: "+indi.getAge()+"is Dead. The Death day is: "+indi.getDday()<<std::endl;
+                std::cout<< "LIST: INDIVIDUAL: US29: "+indi.getID()+": Age: "+indi.getAge()+" is Dead. The Death day is: "+indi.getDday()<<std::endl;
             }else {
                 // do nothing
             }
