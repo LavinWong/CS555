@@ -771,10 +771,33 @@ std::vector<std::string> Repository::us23(){
 
 std::vector<std::string> Repository::us27(){
     // todo
+    std::vector<std::string> result = {};
+    for (auto indi: indiList){
+        if(std::find(result.begin(), result.end(), indi.getID())==result.end()){
+            result.push_back(indi.getID());
+            result.push_back(indi.getAge());
+            std::cout<< "LIST: INDIVIDUAL: US27: "+indi.getID()+": Age: "+indi.getAge()+". "<<std::endl;
+        }else {
+            // do nothing
+        }
+    }
+    return result;
 }
 
 std::vector<std::string> Repository::us29(){
     // todo
+    std::vector<std::string> result = {};
+    for (auto indi: indiList){
+        if (indi.getDday()!="NA"){
+            if(std::find(result.begin(), result.end(), indi.getID())==result.end()){
+                result.push_back(indi.getID());
+                std::cout<< "LIST: INDIVIDUAL: US29: "+indi.getID()+": Age: "+indi.getAge()+"is Dead. The Death day is: "+indi.getDday()<<std::endl;
+            }else {
+                // do nothing
+            }
+        }
+    }
+    return result;
 }
 
 std::vector<std::string> Repository::us30() {
