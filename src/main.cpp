@@ -253,7 +253,10 @@ class Cppunit_tests: public Cppunit {
     }
     
     void us33_test(){
-        //todo
+        Repository repo;
+        std::vector<std::string> result = {"NA"};
+        std::vector<std::string> result1 = repo.us33();
+        CHECKT(result1 == result);
     }
     
     void us35_test(){

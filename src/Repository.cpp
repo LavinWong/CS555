@@ -818,6 +818,14 @@ std::vector<std::string> Repository::us30() {
     }
     std::cout << std::endl;
 
+    return result;
+}
+
+std::vector<std::string> Repository::us33() {
+    std::vector<std::string> result = {};
+    std::vector<std::string> peopleList = {};
+    std::string husbAlive;
+    std::string wifeAlive;
     std::time_t now;
     time(&now);
     char output[20];
@@ -825,52 +833,68 @@ std::vector<std::string> Repository::us30() {
     timeinfo = localtime(&now);
     strftime(output,20,"%F",timeinfo);
     std::string out2 = output;
-    std::cout << out2 << std::endl;
 
+    for (auto fam: famList) {
+        if (fam.getChildrenList() != "{ }") {
+            std::vector<std::string> childList = fam.getChildrenVector();
+            std::string husb = fam.getHusName();
+            std::string wife = fam.getWifeName();
+            if ((husb != "NA") && (wife != "NA")) {
+                std::string husbID = fam.getHusID();
+                std::string wifeID = fam.getWifeID();
+                for (auto indi: indiList) {
+                    if (indi.getID() == husbID)
+                        husbAlive = indi.getAlive();
+                }
+                for (auto indi: indiList) {
+                    if (indi.getID() == wifeID)
+                        wifeAlive = indi.getAlive();
+                }
+                if ((husbAlive == "False") && (wifeAlive == "False")) {
+                    for (auto childs: childList) {
+                        for (auto indi: indiList) {
+                            if (indi.getID() == childs) {
+                                std::string birth = indi.getBday();
+                                int ages = stoi(out2.substr(0, 4)) - stoi(birth.substr(0, 4));
+                                if (stoi(out2.substr(5, 2)) < stoi(birth.substr(5, 2)))
+                                    ages = ages - 1;
+                                if (ages < 18) {
+                                    peopleList.push_back(childs);
+                                    if (std::find(result.begin(), result.end(), "NA") == result.end()) {
+                                        result.push_back("NA");
+                                    } 
+                                    else {
+                                        // do nothing
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else {
+                    std::cout << "ERROR: FAMILY: US33: " + fam.getID() + ": The family has no children who is orphane." << std::endl;
+                }
+            }
+            else {
+                std::cout << "ERROR: FAMILY: US33: " + fam.getID() + ": The family has no husband or wife." << std::endl;
+            }
+        }
+        else {
+            std::cout << "ERROR: FAMILY: US33: " + fam.getID() + ": The family has no children." << std::endl;
+        }
+    }
+
+    std::cout << "Orphaned Children:" << std::endl;
+    int c = 0;
+    for (auto people: peopleList) {
+        if (c != 0)
+            std::cout << ", ";
+        std::cout << people;
+        c = 1;
+    }
+    std::cout << std::endl;
+    
     return result;
-}
-
-std::vector<std::string> Repository::us33(){
-    // std::vector<std::string> result = {};
-    // std::vector<std::string> peopleList = {};
-    // for (auto fam: famList) {
-    //     std::string husb = fam.getHusName();
-    //     std::string wife = fam.getWifeName();
-    //     if ((husb != "NA") && (wife != "NA")) {
-    //         if (fam.getDiv() == "NA") {
-    //             peopleList.push_back(husb);
-    //             peopleList.push_back(wife);
-    //         }
-    //         else {
-    //             if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
-    //                 result.push_back(fam.getID());
-    //             } 
-    //             else {
-    //                 // do nothing
-    //             }
-    //             std::cout << "ERROR: FAMILY: US30: " + fam.getID() + ": The family has divorced people." << std::endl;
-    //         }
-    //     }
-    //     else {
-    //         if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
-    //                 result.push_back(fam.getID());
-    //         } 
-    //         else {
-    //             // do nothing
-    //         }
-    //         std::cout << "ERROR: FAMILY: US30: " + fam.getID() + ": The family has no husband or wife." << std::endl;
-    //     }
-    // }
-    // std::cout << "Married People:" << std::endl;
-    // int c = 0;
-    // for (auto people: peopleList) {
-    //     if (c != 0)
-    //         std::cout << ", ";
-    //     std::cout << people;
-    //     c = 1;
-    // }
-    // std::cout << std::endl;
-    // return result;
 }
 
 std::vector<std::string> Repository::us35(){
