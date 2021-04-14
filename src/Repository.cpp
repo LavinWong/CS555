@@ -785,8 +785,8 @@ std::vector<std::string> Repository::us30() {
         std::string wife = fam.getWifeName();
         if ((husb != "NA") && (wife != "NA")) {
             if (fam.getDiv() == "NA") {
-                peopleList.push_back(husb);
-                peopleList.push_back(wife);
+                peopleList.push_back(fam.getHusID());
+                peopleList.push_back(fam.getWifeID());
             }
             else {
                 if (std::find(result.begin(), result.end(), fam.getID()) == result.end()) {
@@ -808,6 +808,7 @@ std::vector<std::string> Repository::us30() {
             std::cout << "ERROR: FAMILY: US30: " + fam.getID() + ": The family has no husband or wife." << std::endl;
         }
     }
+    
     std::cout << "Married People:" << std::endl;
     int c = 0;
     for (auto people: peopleList) {
