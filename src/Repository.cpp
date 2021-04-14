@@ -808,7 +808,7 @@ std::vector<std::string> Repository::us30() {
             std::cout << "ERROR: FAMILY: US30: " + fam.getID() + ": The family has no husband or wife." << std::endl;
         }
     }
-    
+
     std::cout << "Married People:" << std::endl;
     int c = 0;
     for (auto people: peopleList) {
@@ -892,14 +892,18 @@ std::vector<std::string> Repository::us33() {
     }
 
     std::cout << "Orphaned Children:" << std::endl;
-    int c = 0;
-    for (auto people: peopleList) {
-        if (c != 0)
-            std::cout << ", ";
-        std::cout << people;
-        c = 1;
+    if (peopleList.empty())
+        std::cout << "NA" << std::endl;
+    else {
+        int c = 0;
+        for (auto people: peopleList) {
+            if (c != 0)
+                std::cout << ", ";
+            std::cout << people;
+            c = 1;
+        }
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
 
     return result;
 }
