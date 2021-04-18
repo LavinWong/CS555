@@ -271,18 +271,18 @@ class Cppunit_tests: public Cppunit {
         //todo
         Repository repo;
         std::vector<std::string> result = {};
-        std::vector<std::string> result2 = repo.us35();
-        std::vector<std::string> result3 = result;
-         std::cout<<"-----US35_test------"<<std::endl;
-        for (auto str: result2){
-             std::cout<<str<<std::endl;
-          }
-          std::cout<<"-----US35_test_END------"<<std::endl;
-          std::cout<<"-----US35_result------"<<std::endl;
-          for (auto str: result3){
-              std::cout<<str<<std::endl;
-          }
-          std::cout<<"-----US35_result_END------"<<std::endl;
+        //std::vector<std::string> result2 = repo.us35();
+        //std::vector<std::string> result3 = result;
+        // std::cout<<"-----US35_test------"<<std::endl;
+        //for (auto str: result2){
+           //  std::cout<<str<<std::endl;
+          //}
+          //std::cout<<"-----US35_test_END------"<<std::endl;
+          //std::cout<<"-----US35_result------"<<std::endl;
+         // for (auto str: result3){
+             // std::cout<<str<<std::endl;
+          //}
+          //std::cout<<"-----US35_result_END------"<<std::endl;
         CHECKT(repo.us35() == result);
     }
     
@@ -290,18 +290,18 @@ class Cppunit_tests: public Cppunit {
         //todo
         Repository repo;
         std::vector<std::string> result = {};
-        std::vector<std::string> result2 = repo.us36();
-        std::vector<std::string> result3 = result;
-         std::cout<<"-----US36_test------"<<std::endl;
-        for (auto str: result2){
-             std::cout<<str<<std::endl;
-          }
-          std::cout<<"-----US36_test_END------"<<std::endl;
-          std::cout<<"-----US36_result------"<<std::endl;
-          for (auto str: result3){
-              std::cout<<str<<std::endl;
-          }
-          std::cout<<"-----US36_result_END------"<<std::endl;
+        //std::vector<std::string> result2 = repo.us36();
+        //std::vector<std::string> result3 = result;
+         //std::cout<<"-----US36_test------"<<std::endl;
+        //for (auto str: result2){
+             //std::cout<<str<<std::endl;
+          //}
+          //std::cout<<"-----US36_test_END------"<<std::endl;
+          //std::cout<<"-----US36_result------"<<std::endl;
+          //for (auto str: result3){
+              //std::cout<<str<<std::endl;
+          //}
+          //std::cout<<"-----US36_result_END------"<<std::endl;
         CHECKT(repo.us36() == result);
     }
     
