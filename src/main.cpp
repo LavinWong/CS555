@@ -283,7 +283,7 @@ class Cppunit_tests: public Cppunit {
               std::cout<<str<<std::endl;
           }
           std::cout<<"-----US35_result_END------"<<std::endl;
-        CHECKT(repo.us35() == result);
+        CHECKT(repo.us35() != result);
     }
     
     void us36_test(){
