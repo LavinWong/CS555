@@ -933,6 +933,73 @@ std::vector<std::string> Repository::us33() {
 
 std::vector<std::string> Repository::us35(){
     // todo
+    std::time_t now;
+    time(&now);
+    char output[20];
+    struct tm* timeinfo;
+    timeinfo = localtime(&now);
+    strftime(output,20,"%F",timeinfo);
+    std::string out2 = output;
+    std::vector<std::string> result = {};
+    for (auto indi: indiList)
+    {
+        if (indi.getBday() != "NA")
+	{
+	    std::string bday;
+	    bday = indi.grtBday();
+	    std::vector<std::string> date1 = split(bday, "-");
+            std::vector<std::string> date2 = split(out2, "-");
+
+            int year1 = std::stoi(date1[0]);
+            int year2 = std::stoi(date2[0]);
+            int month1 = std::stoi(date1[1]);
+            int month2 = std::stoi(date2[1]);	
+            int day1 = std::stoi(date1[2]);
+            int day2 = std::stoi(date2[2]);
+            
+            if (year1<year2)
+	    {
+                if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+		{
+                    result.push_back(indi.getID());
+                    // print error message 
+                }
+		else 
+		{
+                    // do nothing
+                }
+            }
+	    if (year1==year2 && (month2-month1) > 1)
+	    {
+                if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+		{
+                    result.push_back(indi.getID());
+                    // print error message 
+                }
+		else 
+		{
+                    // do nothing
+                }
+            }
+	    if (year1==year2 && (month2-month1) == 1 && day2-day1 >= 0 && month2 != 2)
+	    {
+                if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+		{
+                    result.push_back(indi.getID());
+                    // print error message 
+                }
+		else 
+		{
+                    // do nothing
+                }
+            }
+        }
+	else	
+	{
+            std::cout<< "ERROR: INDIVIDUAL: US01: "+indi.getID()+": Birthday is not exist."<<std::endl;
+	}
+    }
+    return result;
 }
 
 std::vector<std::string> Repository::us36(){
