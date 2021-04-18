@@ -270,7 +270,7 @@ class Cppunit_tests: public Cppunit {
     void us35_test(){
         //todo
         Repository repo;
-        std::vector<std::string> result = {"@I1@"};
+        std::vector<std::string> result = {};
         std::vector<std::string> result2 = repo.us35();
         std::vector<std::string> result3 = result;
          std::cout<<"-----US35_test------"<<std::endl;
@@ -283,11 +283,26 @@ class Cppunit_tests: public Cppunit {
               std::cout<<str<<std::endl;
           }
           std::cout<<"-----US35_result_END------"<<std::endl;
-        CHECKT(repo.us35() != result);
+        CHECKT(repo.us35() == result);
     }
     
     void us36_test(){
         //todo
+        Repository repo;
+        std::vector<std::string> result = {};
+        std::vector<std::string> result2 = repo.us36();
+        std::vector<std::string> result3 = result;
+         std::cout<<"-----US36_test------"<<std::endl;
+        for (auto str: result2){
+             std::cout<<str<<std::endl;
+          }
+          std::cout<<"-----US36_test_END------"<<std::endl;
+          std::cout<<"-----US36_result------"<<std::endl;
+          for (auto str: result3){
+              std::cout<<str<<std::endl;
+          }
+          std::cout<<"-----US36_result_END------"<<std::endl;
+        CHECKT(repo.us36() == result);
     }
     
     void us38_test(){
