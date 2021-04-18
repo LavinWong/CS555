@@ -946,7 +946,7 @@ std::vector<std::string> Repository::us35(){
         if (indi.getBday() != "NA")
 	{
 	    std::string bday;
-	    bday = indi.grtBday();
+	    bday = indi.getBday();
 	    std::vector<std::string> date1 = split(bday, "-");
             std::vector<std::string> date2 = split(out2, "-");
 
