@@ -957,7 +957,7 @@ std::vector<std::string> Repository::us35(){
             int day1 = std::stoi(date1[2]);
             int day2 = std::stoi(date2[2]);
             
-            if (year1<year2)
+	    if (year1==year2 && month2==month1 && (day2-day1) <= 30)
 	    {
                 if(std::find(result.begin(), result.end(), indi.getID())==result.end())
 		{
@@ -969,29 +969,85 @@ std::vector<std::string> Repository::us35(){
                     // do nothing
                 }
             }
-	    if (year1==year2 && (month2-month1) > 1)
+	    if (year1==year2 && (month2-month1) == 1)
 	    {
-                if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+		if((month2 % 2) == 0 && month2 < 7 && month != 2)
 		{
-                    result.push_back(indi.getID());
-                    // print error message 
-                }
-		else 
+		    if((day2+30-day1)>=0)
+		    {
+			if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+			{
+                    		result.push_back(indi.getID());
+                    		// print error message 
+                	}
+			else 
+			{
+                    		// do nothing
+                	}
+		    }
+		}
+		if((month2 % 2) == 1 && month2 <= 7)
 		{
-                    // do nothing
-                }
-            }
-	    if (year1==year2 && (month2-month1) == 1 && day2-day1 >= 0 && month2 != 2)
-	    {
-                if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+		    if((day2+31-day1)>=0)
+		    {
+			if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+			{
+                    		result.push_back(indi.getID());
+                    		// print error message 
+                	}
+			else 
+			{
+                    		// do nothing
+                	}
+		    }
+		}
+		if((month2 % 2) == 0 && month2 > 7)
 		{
-                    result.push_back(indi.getID());
-                    // print error message 
-                }
-		else 
+		    if((day2+31-day1)>=0)
+		    {
+			if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+			{
+                    		result.push_back(indi.getID());
+                    		// print error message 
+                	}
+			else 
+			{
+                    		// do nothing
+                	}
+		    }
+		}
+		if((month2 % 2) == 1 && month2 > 7)
 		{
-                    // do nothing
-                }
+		    if((day2+30-day1)>=0)
+		    {
+			if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+			{
+                    		result.push_back(indi.getID());
+                    		// print error message 
+                	}
+			else 
+			{
+                    		// do nothing
+                	}
+		    }
+		}
+		if(month2 ==2)
+		{
+		    if((day2+28-day1)>=0)
+		    {
+			if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+			{
+                    		result.push_back(indi.getID());
+                    		// print error message 
+                	}
+			else 
+			{
+                    		// do nothing
+                	}
+		    }
+		}
+			
+                
             }
         }
 	else	
