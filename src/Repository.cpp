@@ -971,7 +971,7 @@ std::vector<std::string> Repository::us35(){
             }
 	    if (year1==year2 && (month2-month1) == 1)
 	    {
-		if((month2 % 2) == 0 && month2 < 7 && month != 2)
+		if((month2 % 2) == 0 && month2 < 7 && month2 != 2)
 		{
 		    if((day2+30-day1)>=0)
 		    {
