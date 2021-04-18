@@ -1060,6 +1060,129 @@ std::vector<std::string> Repository::us35(){
 
 std::vector<std::string> Repository::us36(){
     // todo
+    std::time_t now;
+    time(&now);
+    char output[20];
+    struct tm* timeinfo;
+    timeinfo = localtime(&now);
+    strftime(output,20,"%F",timeinfo);
+    std::string out2 = output;
+    std::vector<std::string> result = {};
+    for (auto indi: indiList)
+    {
+        if (indi.getDday() != "NA")
+	{
+	    std::string dday;
+	    dday = indi.getDday();
+	    std::vector<std::string> date1 = split(dday, "-");
+            std::vector<std::string> date2 = split(out2, "-");
+
+            int year1 = std::stoi(date1[0]);
+            int year2 = std::stoi(date2[0]);
+            int month1 = std::stoi(date1[1]);
+            int month2 = std::stoi(date2[1]);	
+            int day1 = std::stoi(date1[2]);
+            int day2 = std::stoi(date2[2]);
+            
+	    if (year1==year2 && month2==month1 && (day2-day1) <= 30)
+	    {
+                if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+		{
+                    result.push_back(indi.getID());
+                    // print error message 
+                }
+		else 
+		{
+                    // do nothing
+                }
+            }
+	    if (year1==year2 && (month2-month1) == 1)
+	    {
+		if((month2 % 2) == 0 && month2 < 7 && month2 != 2)
+		{
+		    if((day2+30-day1)>=0)
+		    {
+			if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+			{
+                    		result.push_back(indi.getID());
+                    		// print error message 
+                	}
+			else 
+			{
+                    		// do nothing
+                	}
+		    }
+		}
+		if((month2 % 2) == 1 && month2 <= 7)
+		{
+		    if((day2+31-day1)>=0)
+		    {
+			if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+			{
+                    		result.push_back(indi.getID());
+                    		// print error message 
+                	}
+			else 
+			{
+                    		// do nothing
+                	}
+		    }
+		}
+		if((month2 % 2) == 0 && month2 > 7)
+		{
+		    if((day2+31-day1)>=0)
+		    {
+			if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+			{
+                    		result.push_back(indi.getID());
+                    		// print error message 
+                	}
+			else 
+			{
+                    		// do nothing
+                	}
+		    }
+		}
+		if((month2 % 2) == 1 && month2 > 7)
+		{
+		    if((day2+30-day1)>=0)
+		    {
+			if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+			{
+                    		result.push_back(indi.getID());
+                    		// print error message 
+                	}
+			else 
+			{
+                    		// do nothing
+                	}
+		    }
+		}
+		if(month2 ==2)
+		{
+		    if((day2+28-day1)>=0)
+		    {
+			if(std::find(result.begin(), result.end(), indi.getID())==result.end())
+			{
+                    		result.push_back(indi.getID());
+                    		// print error message 
+                	}
+			else 
+			{
+                    		// do nothing
+                	}
+		    }
+		}
+			
+                
+            }
+        }
+	else	
+	{
+            std::cout<< "ERROR: INDIVIDUAL: US01: "+indi.getID()+": Death date is not exist."<<std::endl;
+	}
+    }
+    return result;
 }
 
 std::vector<std::string> Repository::us38(){
