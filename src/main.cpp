@@ -323,8 +323,8 @@ class Cppunit_tests: public Cppunit {
         //todo
         Repository repo;
         std::vector<std::string> result = {"NA"};
-        std::vector<std::string> result1 = repo.us42();
-        CHECKT(result1 == result)
+        std::vector<std::string> result1 = repo.us40();
+        CHECKT(result1 == result);
     }
     
     void us42_test(){
@@ -332,7 +332,7 @@ class Cppunit_tests: public Cppunit {
         Repository repo;
         std::vector<std::string> result = {"@I4@"};
         std::vector<std::string> result1 = repo.us42();
-        CHECKT(result1 == result)
+        CHECKT(result1 == result);
     }
     
 
