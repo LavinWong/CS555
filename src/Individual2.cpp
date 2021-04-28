@@ -10,6 +10,8 @@ Individual2::Individual2(std::string id2) {
     dday = str_to_t_time("NA");
     famc = "NA";
     fams = "NA";
+    hasBDate = false;
+    hasDDate = false;
 }
 
 Individual2::~Individual2() {

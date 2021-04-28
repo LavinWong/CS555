@@ -10,6 +10,8 @@ Family2::Family2(std::string id1) {
     div_d = str_to_t_time("NA");
     hus_id = "NA";
     wife_id = "NA";
+    hasMDate = false;
+    hasDDate = false;
 }
 
 Family2::~Family2() {

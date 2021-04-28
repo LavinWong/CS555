@@ -19,6 +19,7 @@ private:
     std::time_t bday; // bday for birthday date
     int age;
     bool alive;
+    
     std::time_t dday; // dday for death date
     std::string famc;
     std::string fams;
@@ -26,7 +27,9 @@ private:
 public:
     Individual2(std::string id2);
     ~Individual2();
-    
+
+    bool hasBDate;
+    bool hasDDate;
     int line;
     void setID(std::string id2);
     void setName(std::string name2);

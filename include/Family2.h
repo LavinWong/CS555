@@ -21,13 +21,15 @@ private:
     std::string hus_name;
     std::string wife_id;
     std::string wife_name;
-
+    
     std::vector<std::string> children_id;
     
 public:
     Family2(std::string id1);
     ~Family2();
-
+    
+    bool hasMDate;
+    bool hasDDate;
     int line;
     std::string getID();
     void setID(std::string id2);

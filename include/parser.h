@@ -94,15 +94,19 @@ void parser(std::string filepath, std::vector<Family2>* famListPointer, std::vec
                         {
                             case 1:
                                 indiBuff.setBday(lineResult[3]);
+                                indiBuff.hasBDate = true;
                                 break;
                             case 2:
                                 indiBuff.setDday(lineResult[3]);
+                                indiBuff.hasDDate = true;
                                 break;
                             case 3:
                                 famBuff.setMarr(lineResult[3]);
+                                famBuff.hasMDate = true;
                                 break;
                             case 4:
                                 famBuff.setDiv(lineResult[3]);
+                                famBuff.hasDDate = true;
                                 break;
                             default:
                                 break;

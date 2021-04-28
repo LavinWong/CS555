@@ -1357,17 +1357,37 @@ std::vector<std::string> Repository::us40(){
     // todo
     std::vector<std::string> result = {"NA"};
     for(auto indi: indiList){
-        std::cout<< "TEST: Individual: "+indi.getID()+" at line "+std::to_string(indi.line)<<std::endl;
+        std::cout<< "US40: Individual: "+indi.getID()+" at line "+std::to_string(indi.line)<<std::endl;
     }
     for(auto fam: famList){
-        std::cout<< "TEST: Family: "+fam.getID()+" at line "+std::to_string(fam.line)<<std::endl;
+        std::cout<< "US40: Family: "+fam.getID()+" at line "+std::to_string(fam.line)<<std::endl;
     }
     return result;
 }
 
 std::vector<std::string> Repository::us42(){
     // todo
-    std::vector<std::string> result = {"@I4@"};
+    std::vector<std::string> result = {};
+    for(auto indi: indiList){
+        if ((indi.hasBDate && indi.getBday() == "NA") || (indi.hasDDate && indi.getDday()=="NA")){
+            if(std::find(result.begin(), result.end(), indi.getID())==result.end()){
+                result.push_back(indi.getID());
+                std::cout<< "ERROR: INDIVIDUAL: US42: "+indi.getID()+": has invalid date data "<<std::endl;
+            }else {
+                // do nothing
+            }
+        }
+    }
+    for(auto fam: famList){
+        if ((fam.hasMDate && fam.getMarr() == "NA") || (fam.hasDDate && fam.getDiv()=="NA")){
+            if(std::find(result.begin(), result.end(), fam.getID())==result.end()){
+                result.push_back(fam.getID());
+                std::cout<< "ERROR: FAMILY: US42: "+fam.getID()+": has invalid date data "<<std::endl;
+            }else {
+                // do nothing
+            }
+        }
+    }
     return result;
 }
 
