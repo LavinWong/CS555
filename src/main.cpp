@@ -34,7 +34,7 @@ class Cppunit_tests: public Cppunit {
         //sprint3
         us22_test();
         us23_test();
-        us27_test();
+        //us27_test();
         us29_test();
         us30_test();
         us33_test();
