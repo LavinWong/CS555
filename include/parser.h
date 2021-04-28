@@ -34,13 +34,12 @@ void parser(std::string filepath, std::vector<Family2>* famListPointer, std::vec
                         // flush buffer indi or fam
                         // clear all flag to its default value
                         if (famFlag){
-                            famBuff.line = currentLine;
                             (*famListPointer).push_back(famBuff);
                             famBuff = Family2("NA");
                             famFlag = false;
                         }
                         if (indiFlag){
-                            indiBuff.line = currentLine;
+                            
                             indiBuff.setAge();
                             indiBuff.setAlive();
                             (*indiListPointer).push_back(indiBuff);
@@ -54,11 +53,13 @@ void parser(std::string filepath, std::vector<Family2>* famListPointer, std::vec
                         if (lineResult[2] == "INDI"){
                             // create new indi
                             // edit indiFlag
+                            indiBuff.line = currentLine;
                             indiBuff.setID(lineResult[3]);
                             indiFlag = true;
                         }else{
                             // create new fam
                             // edit famflag
+                            famBuff.line = currentLine;
                             famBuff.setID(lineResult[3]);
                             famFlag = true;
                         }
