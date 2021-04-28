@@ -1330,8 +1330,6 @@ std::vector<std::string> Repository::us39(){
                 else {
                     std::cout << "ERROR: FAMILY: US39: " + fam.getID() + ": One of the couple is not alive." << std::endl;
                 }
-                peopleList.push_back(fam.getHusID());
-                peopleList.push_back(fam.getWifeID());
             }
             else {
                 std::cout << "ERROR: FAMILY: US39: " + fam.getID() + ": The family has divorced people." << std::endl;
