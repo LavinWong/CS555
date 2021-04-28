@@ -27,7 +27,7 @@ public:
     void setHusWifeName();
     std::string getBirthByID(std::string ID);
     bool compareAge(std::string b1, std::string b2, std::string sex);
-    bool checkFutureBirthOfLive(std::string currentTime, std::string indiBirth);
+    //bool checkFutureBirthOfLive(std::string currentTime, std::string indiBirth);
 
     void print_table();
     std::vector<std::string> us01();
