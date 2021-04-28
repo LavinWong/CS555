@@ -1355,9 +1355,19 @@ std::vector<std::string> Repository::us39() {
 
 std::vector<std::string> Repository::us40(){
     // todo
+    std::vector<std::string> result = {"NA"};
+    for(auto indi: indiList){
+        std::cout<< "TEST: Individual: "+indi.getID()+" at line "+std::to_string(indi.line)<<std::endl;
+    }
+    for(auto fam: famList){
+        std::cout<< "TEST: Family: "+fam.getID()+" at line "+std::to_string(fam.line)<<std::endl;
+    }
+    return result;
 }
 
 std::vector<std::string> Repository::us42(){
     // todo
+    std::vector<std::string> result = {"@I4@"};
+    return result;
 }
 

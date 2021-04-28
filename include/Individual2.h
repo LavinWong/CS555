@@ -22,10 +22,12 @@ private:
     std::time_t dday; // dday for death date
     std::string famc;
     std::string fams;
+    
 public:
     Individual2(std::string id2);
     ~Individual2();
-
+    
+    int line;
     void setID(std::string id2);
     void setName(std::string name2);
     void setGender(std::string gender2);

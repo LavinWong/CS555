@@ -11,6 +11,8 @@
 
 void parser(std::string filepath, std::vector<Family2>* famListPointer, std::vector<Individual2>* indiListPointer) {
     std::ifstream gedFile;
+    int currentLine = 0;
+    int myLine = 0;
     gedFile.open(filepath);
     if (gedFile.is_open())
     {
@@ -23,6 +25,7 @@ void parser(std::string filepath, std::vector<Family2>* famListPointer, std::vec
         Individual2 indiBuff("NA");
 
         while(getline(gedFile, line)){
+            currentLine ++;
             lineResult = getOutPutString(line); // assign the return value to lineReuslt, contains each line's validTag, level, tag, and args
             if (lineResult[0] == "|Y|"){
                 if (lineResult[1] == "0"){
@@ -31,11 +34,13 @@ void parser(std::string filepath, std::vector<Family2>* famListPointer, std::vec
                         // flush buffer indi or fam
                         // clear all flag to its default value
                         if (famFlag){
+                            famBuff.line = currentLine;
                             (*famListPointer).push_back(famBuff);
                             famBuff = Family2("NA");
                             famFlag = false;
                         }
                         if (indiFlag){
+                            indiBuff.line = currentLine;
                             indiBuff.setAge();
                             indiBuff.setAlive();
                             (*indiListPointer).push_back(indiBuff);

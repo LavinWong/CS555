@@ -23,10 +23,12 @@ private:
     std::string wife_name;
 
     std::vector<std::string> children_id;
+    
 public:
     Family2(std::string id1);
     ~Family2();
 
+    int line;
     std::string getID();
     void setID(std::string id2);
     std::string getMarr();
