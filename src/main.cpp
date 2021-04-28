@@ -306,7 +306,10 @@ class Cppunit_tests: public Cppunit {
     }
     
     void us38_test(){
-        //todo
+        Repository repo;
+        std::vector<std::string> result = {"@I1@","@I6@"};
+        std::vector<std::string> result1 = repo.us38();
+        CHECKT(result1 == result);
     }
     
     void us39_test(){

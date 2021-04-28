@@ -127,6 +127,57 @@ bool Repository::compareAge(std::string b1, std::string b2, std::string sex) {
     }
 }
 
+bool Repository::checkFutureBirthOfLive(std::string currentTime, std::string indiBirth) {
+    int currentDate = stoi(currentTime.substr(8, 2));
+    int currentMonth = stoi(currentTime.substr(5, 2));
+    int currentYear = stoi(currentTime.substr(0, 4));
+    int indiDate = stoi(indiBirth.substr(8, 2));
+    int indiMonth = stoi(indiBirth.substr(5, 2));
+    if (currentMonth == 1) {
+        if ((indiMonth == currentMonth) && (indiDate > currentDate))
+            return true;
+        else if ((indiMonth == (currentMonth+1)) && (indiDate <= (currentDate-1)))
+            return true;
+        else if (indiMonth == (currentMonth+2)) {
+            if (((currentYear % 4) == 0) && (((currentYear % 100) != 0) || ((currentYear % 400) == 0))) {
+                if ((indiDate <= ((31 - currentDate + 30) - 29)) && ((31 - currentDate + 30) > 29))
+                    return true; 
+            }
+            else {
+                if ((indiDate <= ((31 - currentDate + 30) - 28)) && ((31 - currentDate + 30) > 28))
+                    return true; 
+            }
+        } 
+    }
+    else if (currentMonth == 2) {
+        if (((currentYear % 4) == 0) && (((currentYear % 100) != 0) || ((currentYear % 400) == 0))) {
+            if ((indiMonth == currentMonth) && (indiDate > currentDate))
+                return true;
+            else if ((indiMonth == (currentMonth+1)) && (indiDate <= (currentDate+1)))
+                return true;
+        }
+        else {
+            if ((indiMonth == currentMonth) && (indiDate > currentDate))
+                return true;
+            else if ((indiMonth == (currentMonth+1)) && (indiDate <= (currentDate+2)))
+                return true;
+        }
+    }
+    else if ((currentMonth % 2) != 0) {
+        if ((indiMonth == currentMonth) && (indiDate > currentDate))
+            return true;
+        else if ((indiMonth == (currentMonth+1)) && (indiDate <= currentDate))
+            return true;
+    }
+    else if ((currentMonth % 2) == 0) {
+        if ((indiMonth == currentMonth) && (indiDate > currentDate))
+            return true;
+        else if ((indiMonth == (currentMonth+1)) && (indiDate <= (currentDate-1)))
+            return true;
+    }
+    return false;
+}
+
 // add us01 to us06 here 
 
 std::vector<std::string> Repository::us01() {
@@ -1186,7 +1237,51 @@ std::vector<std::string> Repository::us36(){
 }
 
 std::vector<std::string> Repository::us38(){
-    // todo
+    std::vector<std::string> result = {};
+    std::vector<std::string> peopleList = {};
+    std::time_t now;
+    time(&now);
+    char output[20];
+    struct tm* timeinfo;
+    timeinfo = localtime(&now);
+    strftime(output,20,"%F",timeinfo);
+    std::string currentTime = output;
+    for (auto indi: indiList) {
+        if (indi.getAlive() == "True") {
+            if (indi.getBday() == "NA") {
+                std::cout << "ERROR: INDIVIDUAL: US38: "+indi.getID()+": Birth date is not exist."<<std::endl;
+                continue;
+            }
+            std::string indiBirth = indi.getBday();
+            bool temp = checkFutureBirthOfLive(currentTime, indiBirth);
+            if (temp == true) {
+                peopleList.push_back(indi.getID());
+                if (std::find(result.begin(), result.end(), indi.getID()) == result.end()) {
+                    result.push_back(indi.getID());
+                } 
+                else {
+                    // do nothing
+                }
+            }
+        }
+        else {
+            std::cout << "ERROR: INDIVIDUAL: US38: "+indi.getID()+": The individual is not alive."<<std::endl;
+        }
+    }
+    std::cout << "Living people whose birthdays occur in the next 30 days:" << std::endl;
+    if (peopleList.empty())
+        std::cout << "NA" << std::endl;
+    else {
+        int c = 0;
+        for (auto people: peopleList) {
+            if (c != 0)
+                std::cout << ", ";
+            std::cout << people;
+            c = 1;
+        }
+        std::cout << std::endl;
+    }
+    return result; 
 }
 
 std::vector<std::string> Repository::us39(){
